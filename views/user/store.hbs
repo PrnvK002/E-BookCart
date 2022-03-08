@@ -1,0 +1,448 @@
+<div class="home" id="bckground">
+
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+      <!-- MAIN CONTENT -->
+      <div id="t3-content" class="t3-content col-xs-12">
+        <div id="system-message-container">
+        </div>
+
+        <div id="akeeba-renderjoomla">
+
+          <div
+            itemscope=""
+            itemtype="http://schema.org/ItemList"
+            class="j2store-product-list bs2"
+          >
+
+            <div class="row">
+              <div class="jb-filter-section col-sm-3">
+                <div id="j2store-product-loading" style="display:block;"></div>
+                  <!-- Price Filters Starts Here -->
+                  <div
+                    id="j2store-price-filter-container"
+                    class="j2store-product-filters price-filters test"
+                  >
+
+                    <h3 class="module-title product-filter-heading">
+                      <span>
+                        Filter by Price
+                      </span>
+                    </h3>
+                    {{!-- <div id="j2store-slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                      
+                      <div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;" ></div>
+                      <a
+                        class="ui-slider-handle ui-state-default ui-corner-all"
+                        href="#"
+                        style="left: 0%;"
+                      ></a><a
+                        class="ui-slider-handle ui-state-default ui-corner-all"
+                        href="#"
+                        style="left: 100%;"
+                      ></a></div> --}}
+
+                    <!-- Price Filters Ends Here -->
+                    <div id="j2store-slider-range-box" style="margin-top: 0px;" class="price-input-box">
+                  
+                      <div class="" style="text-align: center;">
+                        {{!-- $<span id="min_price">0</span>
+                        To $<span id="max_price">500</span> --}}
+                        <form action="/priceFilter" method="post" onsubmit="return priceFilterValidation()">
+                        <p style="color: red;display: none;" id="priceFilterError">From and To fields must be filled</p>
+                        <input
+                          type="number"
+                          name="priceFrom"
+                          id="min_price_input"
+                          style="margin: 1rem;"
+                          placeholder="Enter the start Range"
+                          
+                        />
+                        <input
+                          type="number"
+                          name="priceTo"
+                          id="max_price_input"
+                          style="margin: 1rem;"
+                          placeholder="Enter the end Range"
+                          
+                        />
+                        <button type="submit" class="btn btn-success">GO</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+              {{!-- price filter Validation --}}
+
+                  <script>
+                  
+                  function priceFilterValidation(){
+
+                    let from = document.getElementById('min_price_input').value;
+                    let to = document.getElementById('max_price_input').value;
+
+                    if(from.length > 0 && to.length > 0){
+                      return true;
+                    }else{
+                      document.getElementById('priceFilterError').style.display = "block";
+                      return false;
+                    }
+
+                  }
+                  </script>
+
+              {{!-- price filter Validation end --}}
+
+                  <!-- Module Categories Filters -->
+
+                  <div class="j2store-product-filters category-filters">
+
+                    <h3 class="module-title product-filter-heading">
+                      <span>Browse books</span>
+                    </h3>
+                    <div id="j2store_category">
+                      <ul id="j2store_categories_mod" class="nav nav-list nav-pills nav-stacked j2store-category-list">
+                        <li class="j2product-categories level3">
+                          <a href="/store" class="j2store-item-category">
+                            <i class="icon-line-book"></i>
+                             All Products
+                          </a>
+                        </li>
+                      {{#each categories}}
+                        <li class="j2product-categories level3">
+                          <a href="/category_filter/{{this.categoryName}}" class="j2store-item-category">
+                            <i class="icon-line-book"></i>
+                            {{this.categoryName}}
+                          </a>
+                        </li>
+                      {{/each}}
+                      </ul>
+
+                    </div>
+                  </div>
+
+                  <!-- Manufacturer -->
+
+                  <!-- Brand / Manufacturer Filters -->
+                  <div class="j2store-product-filters manufacturer-filters">
+
+                    <div
+                      class="j2store-product-filter-title j2store-product-brand-title"
+                    >
+                      <h3 class="module-title product-filter-heading">
+                        <a href="/store/offer_filter">
+                        <span>Filter by Offer</span>
+                        </a>
+                        </h3>
+                      <span>
+                      </span>
+                    </div>
+                    
+                  </div>
+
+                  <!-- Vendors -->
+
+                  <!-- Product Filters  -->
+                  
+
+
+
+              </div>
+
+              <div class="jb-product-section col-sm-9">
+
+                {{!-- <div class="jb-products-filter-head">
+
+                  <form class="form-inline" id="productFilters" name="productfilters" action="/" method="post">
+                  
+                    <input
+                      type="text"
+                      name="search"
+                      value=""
+                      class="j2store-product-search-input"
+                    />
+                    <input
+                      type="button"
+                      value="Go"
+                      class="btn btn-border-brand"
+                      onclick="jQuery(this.form).submit();"
+                    />
+                    <input
+                      type="button"
+                      value="Reset"
+                      class="btn btn-border-brand"
+                      onclick="resetJ2storeFilter();"
+                    />
+
+                    <!-- Sorting -->
+                    <select
+                      id="j2store_sortby"
+                      name="sortby"
+                      class="input"
+                      onchange="this.form.submit()"
+                    >
+                      <option value="" selected="selected">Sort Product by</option>
+                      <option value="pname">Name (A - Z)</option>
+                      <option value="rpname">Name (Z - A)</option>
+                      <option value="min_price">Price (Low &gt; High)</option>
+                      <option value="rmin_price">Price (High &gt; Low)</option>
+                      <option value="sku">SKU (A - Z)</option>
+                      <option value="rsku">SKU (Z - A)</option>
+                      <option value="brand">Brand (A-Z)</option>
+                      <option value="rbrand">Brand (Z-A)</option>
+                    </select>
+
+                   
+                    </form>
+
+               
+                </div> --}}
+
+                <!-- Make sure product is enabled and visible @front end -->
+                <div class="j2store-products-row row-0 row">
+                  <div class="row">
+                  {{#if products}}
+                  {{#each products}}
+                  <div data-layout-switcher="grid" class="product-col col-lg-4 col-md-3 col-sm-6 col-xs-12"  >
+                  
+                    <div class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1" style="height: 38rem;width: 23rem;margin-bottom:8rem">
+
+                      <div class="j2store-product-item-gird-info">
+
+                        <div class="jb-product-grid-view">
+
+                          <div class="jb-product-block">
+                            <div class="product-image">
+
+                              <div class="inner-images">
+                                <div class="j2store-product-images">
+
+                                  <div class="j2store-thumbnail-image">
+
+                                    <a
+                                      href="/view-product/{{this._id}}"
+                                    >
+
+                                      <img
+                                        itemprop="image"
+                                        alt="The third planet"
+                                        class="j2store-img-responsive j2store-product-thumb-image-1"
+                                        src="/images/products/{{this.image.[0]}}"
+                                      />
+
+                                    </a>
+
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              <div class="overlay-rmore">
+                                <div class="quickview">
+                                  <!-- QUICK VIEW OPTION -->
+
+                                  <a
+                                    style="display:inline;position:relative;"
+                                    class="modal j2store-product-quickview-modal"
+                                    href="/view-product/{{this._id}}"
+                                  >
+                                    <ion-icon name="search-outline"></ion-icon>                          
+                                  </a>
+
+                                </div>
+                              </div>
+
+                              <div class="hover-state">
+                                <div class="hover-content">
+                                  <div class="j2store_product_cart j2store-product-list-cart jb-slider-cart">
+
+                                      <div class="cart-action-complete" style="display:none;">
+                                        <p class="text-success" id="AddedToWishlist-{{this._id}}">
+                                          Item added to cart.
+                                          <a href="/cart" class="j2store-checkout-link">
+                                            Checkout
+                                          </a>
+                                        </p>
+                                      </div>
+
+                                      <div class="j2store-add-to-cart">
+
+                                        <button type="submit" style="border: none;outline: none; background:none" onclick="addToCart('{{this._id}}')" class="btn btn-inverse btn-lg btn-block">
+                                          Add to cart
+                                        </button>
+
+                                      </div>
+
+                                      <div class="jb-icons">
+
+                                        <div class="product-compare">
+                                          <a class="j2store-compare-links product-compare-link" onclick="">
+                                            <i class="fa fa-list"></i>
+                                          </a>
+
+                                        </div>
+                                        <div class="product-wishlist">
+                                          <i id="icon-spinner-1" class="fa fa-spinner" style="display:none;"></i>
+                                          <button class="product-wishlist-link" style="border: none; outline:none;background:none" onclick="addWishlist('{{this._id}}')">                              <span class="fa fa-heart"></span>
+                                          </button>
+                                        </div>
+                                      </div>
+
+                                      
+                                      <div class="j2store-notifications"></div>
+
+                                
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <div class="j2store_product_content_block">
+                              <div class="inner-content">
+
+                                <h2 itemprop="name" class="product-title">
+
+                                  <a itemprop="url" href="" title="The third planet"  style="font-size: small;" >
+                                    {{this.productName}}
+                                  </a>
+
+                                </h2>
+
+                                <div
+                                  class="product-price-container" 
+                                >
+
+                                  {{#if isOffer}}
+                                        <div style="display: flex;justify-content:center;align-items:center">
+                                          <div class="base-price strike">
+                                            <span class="product-element-value"  style="font-size: small;">
+                                              ₹{{this.price}}
+                                            </span>
+                                          </div>
+
+                                          <div class="sale-price">
+                                            <div class="product-element-value"  style="font-size: small;">
+                                              ₹{{this.offerPrice}}
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                  {{else}}
+                                          {{!-- <div class="base-price strike">
+                                            <span class="product-element-value">
+                                              $50.00
+                                            </span>
+                                          </div> --}}
+
+                                          <div class="sale-price" style="text-align: center;">
+                                            <div class="product-element-value">
+                                              ₹{{this.price}}
+                                            </div>
+                                          </div>
+
+                                  {{/if}}
+
+                                  
+                                </div>
+
+                                {{!-- <div class="discount-percentage">
+                                  <span>
+                                    70 %
+                                    <br />
+                                    OFF
+                                  </span>
+                                </div> --}}
+
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                {{/each}}
+                  {{else}}
+
+        <div id="error-block">
+          <div id="system-message">
+            <div class="alert alert-warning">
+              {{!-- <a class="close" data-dismiss="alert">×</a> --}}
+              <h4 class="alert-heading"></h4>
+              <div>
+                <p id="err-msg">No products found</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+                  {{/if}}
+                
+        </div>
+                </div>
+
+                {{!-- <form
+                  id="j2store-pagination"
+                  name="j2storepagination"
+                  action="/bookstore/index.php/text-books/novel/romance?filter_catid=0"
+                  method="post"
+                >
+                  <input type="hidden" name="option" value="com_j2store" />
+                  <input type="hidden" name="view" value="products" />
+                  <input type="hidden" name="task" id="task" value="browse" />
+                  <input type="hidden" name="boxchecked" value="0" />
+                  <input type="hidden" name="filter_order" value="" />
+                  <input type="hidden" name="filter_order_Dir" value="0" />
+                  <input
+                    type="hidden"
+                    name="6c79a04fcff26e28772a9f743161c0b5"
+                    value="1"
+                  /> --}}
+{{!-- 
+                {{#if products}}
+
+                  <div class="pagination">
+                    <ul class="pagination"><li class="disabled"><a
+                        >Start</a></li><li class="disabled"><a>Prev</a></li><li
+                        class="active"
+                      ><a>1</a></li><li><a
+                          title="2"
+                          href="/bookstore/index.php/text-books/novel/romance?start=8"
+                        >2</a></li><li><a
+                          title="Next"
+                          href="/bookstore/index.php/text-books/novel/romance?start=8"
+                        >Next</a></li><li><a
+                          title="End"
+                          href="/bookstore/index.php/text-books/novel/romance?start=8"
+                        >End</a></li></ul>
+                  </div>
+
+                {{else}}
+                {{/if}} --}}
+                {{!-- </form> --}}
+
+              </div>
+
+            </div>
+            <!-- end of row-fluid -->
+          </div>
+          <!-- end of product list -->
+        </div>
+
+      </div>
+      <!-- //MAIN CONTENT -->
+
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,137 @@
+<body class="img js-fullheight">
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="heading-section">Sign Up</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center">Don't Have an account?</h3>
+            <div class="signin-form">
+
+        {{!-- error message --}}
+
+      {{#if error}}
+        <div id="error-msg" style="position : fixed ; top: 10rem;width:70%;z-index:100">
+          <div id="system-message">
+            <div class="alert alert-warning">
+              <a class="close" data-dismiss="alert">×</a>
+
+              <h4 class="alert-heading"></h4>
+              <div>
+                <p>{{error}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+       <div id="error-block" style="display: none;position : fixed ; top: 10rem;width:70%;z-index:100">
+          <div id="system-message">
+            <div class="alert alert-warning">
+              {{!-- <a class="close" data-dismiss="alert">×</a> --}}
+
+              <h4 class="alert-heading"></h4>
+              <div>
+                <p id="err-msg"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{!-- error message end --}}
+        <form action="/send_otp" method="post" onsubmit="return signInValidation()">
+
+              <div class="form-group">
+                <input
+                  type="name"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  style="background:transparent;"
+                  placeholder="Fullname"
+                  required />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control"
+                  style="background:transparent;width : 100%"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="phone"
+                  id="phone"
+                  name="phone"
+                  class="form-control"
+                  style="background:transparent;"
+                  placeholder="Phone"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  style=" background : transparent ; width : 100% ; padding : 10px "
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+                <div class="form-group" style="margin-top: 1.5rem;">
+                <input
+                  id="confirm_password"                  
+                  type="password"
+                  name="confirm_password"
+                  style="background:transparent;width : 100% ;  padding : 10px"
+                  class="form-control"
+                  placeholder="Re-enter your Password"
+                  required
+                />
+                  {{!-- <span
+                    toggle="#password-field"
+                    class="fa fa-fw fa-eye field-icon toggle-password"
+                  ></span> --}}
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="form-control btn btn-primary submit px-3"
+                >
+                  Sign In
+                </button>
+              </div>
+
+            </form>
+
+              <div class="form-group d-md-flex">
+                
+                <div class="w-80 text-md-right">
+                  <a href="/login">Already have an account?</a>
+                </div>
+              </div>
+              </div>
+            <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+            <div class="social d-flex text-center" style="justify-content:center;align-items: center">
+              <a href="/auth/google" class="px-2 py-2 mr-md-1 btn btn-primary rounded" >
+                Google</a>
+              {{!-- <a href="#" class="px-2 py-2 ml-md-1 rounded"><span
+                  class="ion-logo-twitter mr-2"
+                ></span>
+                Twitter</a> --}}
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</body>

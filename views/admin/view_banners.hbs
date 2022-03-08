@@ -1,0 +1,61 @@
+<div class="content-page">
+  <div class="content" >
+    <div style="margin : 2rem" class="row">
+    {{#each data}}
+    <div class="col-sm-6 col-lg-3 col-xxl-1" id="card-{{this._id}}" style="margin: 1rem;">
+        <div class="card d-block">
+        <img class="card-img-top" src="/images/offers/{{this.images}}" alt="Card image cap">
+        <div class="card-body">
+           <p> Created Date :  {{this.createdAt}}</p>
+           <p> Expiry Date :  {{this.expiry_date}}</p>
+          <button onclick="removeBanner('{{this._id}}')" type="button" class="btn btn-primary">Remove</button>
+         </div> <!-- end card-body-->
+         </div> <!-- end card-->
+    </div>
+    {{/each}}
+  
+  </div>
+
+</div>
+  <div class="banner_add_button" style="position: fixed; right:3rem;bottom:3rem">
+      <button type="button" onclick="popupView()" style="color: white;background: green;border-radius: 50%; border: none;width:4rem;height:4rem">
+          <ion-icon name="add-outline" style="font-size: 2rem;"></ion-icon>
+      </button>
+
+  </div>
+
+        {{!-- popup view section start --}}
+
+<div id="popup-wrapper" style="box-sizing: content-box;" class="popup-container">
+    <div class="popup-content">
+      <span id="close">&times;</span>
+      <h3>Upload offer Banners</h3>
+      <form action="/admin/add-banner" method="post" enctype="multipart/form-data">
+        {{!-- <textarea type="text" rows="6" name="description" placeholder="Description" style="height:3rem"/></textarea> --}}
+        <div class="mb-3">
+          <label class="form-label">Expiry Date</label>
+          <input type="text"style="width:40%" name="expiry_date" class="form-control date" id="birthdatepicker" data-toggle="date-picker" data-single-date-picker="true">
+      </div>
+        <div id="image_preview" style="padding: 5px;">
+           <img src="" width="200" id="image_preview1" alt="">
+        </div>
+        <p style="color:red ; display : none" id="invalid">Invalid file format</p>
+        <input type="file" id="upload_file1" name="offer_banner" onchange="return fileValidation(event,'upload_file1');" style="padding: 5px;">
+
+    <div>
+      
+      <button type="submit" style="width: 50%; background : green ; color : white ; border: none ; font-size: 1rem">
+        Submit
+      </button>
+    </div>
+
+    </form>
+    
+
+  </div>
+ </div>
+  </div>
+
+</div>
+
+

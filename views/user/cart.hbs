@@ -1,0 +1,181 @@
+<div class="home" id="bckground" >
+
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+      <!-- MAIN CONTENT -->
+      <div id="t3-content" class="t3-content col-xs-12">
+
+        {{!-- message start --}}
+
+        <div id="item-removed-msg" style="display: none; position : fixed; top : 9rem; width:70%; z-index:1000 ">
+          <div id="system-message">
+            <div class="alert alert-success">
+              <a class="close" data-dismiss="alert">×</a>
+
+              <h4 class="alert-heading">success</h4>
+              <div>
+                <p>Item removed from cart.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        {{!-- message end --}}
+
+      {{#if cartData}}
+
+        <div id="akeeba-renderjoomla">
+          <div class="j2store">
+            <div class="j2store-cart">
+              <div class="span12"></div>
+              <div class="row-fluid">
+                <div class="span12">
+
+                    <table class="j2store-cart-table table table-bordered" >
+                      <thead>
+                        <tr>
+                          <th>Image</th>
+                          <th>Item</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    {{#each cartData.products}}
+
+                        <tr id="product-row-{{this.product_id._id}}">
+
+                          <td style="text-align: center;">
+                            <img src="/images/products/{{this.product_id.image.[0]}}" width="50" alt="" srcset="">
+                          </td>
+
+                          <td>
+
+                            <span class="cart-product-name">
+                              {{this.product_id.productName}}
+                            </span>
+                            <br />
+                            <span class="cart-product-unit-price">
+                              <span class="cart-item-title">Unit Price</span>
+                              <span class="cart-item-value">
+                                {{this.product_id.price}}
+                              </span>
+                            </span>
+
+                            <br />
+                         
+
+                          </td>
+
+                          <td style="display: flex; justify-content:space-around; border-bottom:none;text-align: center;">
+
+                            <div class="product-qty">
+                              {{#if this.product_id.isOffer}}
+                                <button onclick="changeCartCount('{{this.product_id._id}}','{{this.product_id.offerPrice}}',1 ,'{{this.product_id.productName}}')">+</button>
+                              {{else}}
+                                <button onclick="changeCartCount('{{this.product_id._id}}','{{this.product_id.price}}',1 ,'{{this.product_id.productName}}')">+</button>
+                              {{/if}}
+                               <span id="cart_count-{{this.product_id._id}}">{{this.number}}</span>
+                              {{#if this.product_id.isOffer}}
+                                <button onclick="changeCartCount('{{this.product_id._id}}','{{this.product_id.offerPrice}}',-1 , '{{this.product_id.productName}}')">-</button> 
+                              {{else}}
+                                <button onclick="changeCartCount('{{this.product_id._id}}','{{this.product_id.price}}',-1 , '{{this.product_id.productName}}')">-</button> 
+                              {{/if}}
+                            </div>
+                              {{#if this.product_id.isOffer}}
+                            <button onclick="deleteCartItem('{{this.product_id._id}}','{{this.product_id.offerPrice}}','{{this.product_id.productName}}')"
+                              class="btn btn-small btn-danger btn-xs j2store-remove remove-icon">
+                              <i class="fa fa-trash-o"></i>
+                            </button>
+                            {{else}}
+                             <button onclick="deleteCartItem('{{this.product_id._id}}','{{this.product_id.price}}','{{this.product_id.productName}}')"
+                              class="btn btn-small btn-danger btn-xs j2store-remove remove-icon">
+                              <i class="fa fa-trash-o"></i>
+                            </button>
+                            {{/if}}
+                          </td>
+
+                          <td class="cart-line-subtotal" id="product_subtotal-{{this.product_id._id}}" style="text-align: center;">
+                            {{this.item_total}}
+                          </td>
+                        </tr>
+                    {{/each}}
+                      </tbody>
+                    </table>
+                    <div class="j2store-cart-buttons">
+                      <div class="buttons-left">
+                        <span class="cart-continue-shopping-button">
+                          <a
+                            class="btn btn-primary"
+                            type="button"
+                            href="/"
+                          >
+                          Continue Shopping
+                          </a>
+
+                        </span>
+                      </div>
+                      <div class="buttons-right">
+                      </div>
+                    </div>
+                  <!-- Display plugin results -->
+                </div>
+              </div>
+
+              <div class="row-fluid">
+                <div class="span6">
+                  <h3>Cart totals</h3>
+                  <table class="cart-footer table table-bordered">
+                    <tbody>
+                      <tr valign="top">
+                        <th scope="row" colspan="2">
+                          Total
+                        </th>
+                        <td id="total_price">{{cartData.total_price}}</td>
+                      </tr>
+                    </tbody></table>
+
+                  <div class="buttons-right">
+                    <span class="cart-checkout-button">
+                      <a
+                        class="btn btn-large btn-success"
+                        href="/checkout">Proceed to Checkout </a>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+        {{else}}
+        
+
+         {{!-- <div id="item-empty-msg"> --}}
+          <div id="system-message">
+            <div class="alert alert-warning">
+              <a class="close" data-dismiss="alert">×</a>
+
+              {{!-- <h4 class="alert-heading">success</h4> --}}
+              <div>
+                <p>Nothing To show in the Cart</p>
+              </div>
+            </div>
+          </div>
+        {{!-- </div> --}}
+
+        {{/if}}
+
+      </div>
+      <!-- //MAIN CONTENT -->
+
+    </div>
+  </div>
+
+  
+
+</div>

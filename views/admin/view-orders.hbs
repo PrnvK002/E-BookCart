@@ -1,0 +1,240 @@
+<div class="content-page">
+  <div class="content">
+
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box">
+          
+          <h4 class="page-title">Orders</h4>
+        </div>
+      </div>
+    </div>
+    <!-- end page title -->
+
+  {{!-- popup container start --}}
+
+  <div id="popup-wrapper" style="box-sizing: content-box;" class="popup-container">
+    <div class="popup-content">
+      <span id="close">&times;</span>
+      <h3>Update Status</h3>
+      <form action="/admin/update_status" method="post">
+        
+        <input type="text" id="order_id" name="order_id" style="display: none;">
+        <label for="order_status">Order Status:</label>
+        <select name="order_status" id="order_status" >
+          <option value="shipped">Shipped</option>
+          <option value="out for delivery">Out for delivery</option>
+          <option value="order placed">Order Placed</option>
+          <option value="pending">Pending</option>
+          <option value="delivered">Delivered</option>
+        </select>
+
+    <div>
+      <button type="submit" style="width: 50%; background : green ; color : white ; border: none ; font-size: 1rem">
+        Submit
+      </button>
+    </div>
+
+    </form>
+    
+
+  </div>
+ 
+  </div>
+
+  {{!-- popup container end --}}
+
+
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="table-responsive">
+              <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12">
+                    <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                      {{!-- <div class="row">
+                       
+                        <div class="col-sm-12 col-md-6" style="margin-left: auto;">
+                       <div id="products-datatable_filter" class="dataTables_filter">
+                         <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="products-datatable"></label>
+                        </div>
+                      </div>
+                      </div> --}}
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <table class="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline" id="products-datatable" aria-describedby="products-datatable_info" style="width: 975px;">
+
+
+
+                      <thead class="table-light">
+                        <tr>
+                         
+                          <th class="all sorting sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 211.8px;" aria-label="Product: activate to sort column descending" aria-sort="ascending">
+                              user_id 
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 90.8px;" aria-label="Category: activate to sort column ascending">
+                                order_id
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 86.8px;" aria-label="Added Date: activate to sort column ascending">
+                                ordered Date
+                              {{#if o}}
+                            <button style="border:none;outline:none;background:none" data-id="{{o}}" id="filter" onclick="filterOrders()"><ion-icon name="swap-vertical-outline"></ion-icon></button>
+                            {{else}}
+                            <button style="border:none;outline:none;background:none" data-id="Ascending" id="filter" onclick="filterOrders()"><ion-icon name="swap-vertical-outline"></ion-icon></button>
+                            {{/if}}
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 86.8px;" aria-label="Added Date: activate to sort column ascending">
+                                Address
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 41.8px;" aria-label="Price: activate to sort column ascending">
+                                Product Name
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                                Quantity
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                                Payment Method
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                                Order Status
+                          </th>
+                           <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                                Payment Status
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 48.8px;" aria-label="Status: activate to sort column ascending">
+                                Total Price
+                          </th>
+                          <th style="width: 71.6px;" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action">
+                                Action
+                          </th>
+                        </tr>
+
+                      </thead>
+                      <tbody>  
+                        {{#each orderData}}
+                      <tr class="odd" id="row-{{this._id}}">
+
+                          <td class="sorting_1">
+                            {{!-- <img src="/images/products/{{this.image.[0]}}" alt="contact-img" title="contact-img" class="rounded me-3" height="48"> --}}
+                            <p class="m-0 d-inline-block align-middle font-16">
+                              <a href="" class="text-body">{{this.user_id.fullname}}</a>
+                              <br>
+                              
+                            </p>
+                          </td>
+                          <td>
+                           {{this._id}}
+                          </td>
+                          <td>
+                           {{this.ordered_date}}
+                          </td>
+                          <td >
+                            <p>
+                            {{this.address.address}},
+                            </p>
+                            <p>
+                            {{this.address.pin}},
+                            </p>
+                            <p>
+                            {{this.address.town}},
+                            </p>
+                            <p>
+                            {{this.address.landmark}}
+                            </p>
+                          </td>
+                          {{!-- <td></td> --}}
+                          <td >
+                          {{#each this.products}}
+                            <p>
+                            {{this.product_id.productName}}
+                            </p>
+                          {{/each}}
+                          </td>
+                          
+                          <td>
+                            <div style="display : flex ; flex-direction : column ; justify-content:center ; align-items : center">
+                          {{#each this.products}}
+                            <p>
+                            {{this.number}}
+                            </p>
+                          {{/each}}
+                          </div>
+                          </td>
+                          <td style="">
+                              {{this.payment_method}}
+                          </td>
+                          <td style="" id="status-{{this._id}}" class="order_status" data-id ="{{this._id}}" >
+                              {{this.order_status}}
+                          </td>
+                          <td style="">
+                              {{this.payment_status}}
+                          </td>
+                          <td style="">
+                              {{this.total_prize}}
+                          </td>
+                          <td class="table-action" style="">
+                            {{#if this.cancel_status}}
+                            
+                            {{else}}
+                            <button onclick="cancelOrder('{{this._id}}')" id="cancelButton-{{this._id}}" class="btn btn-danger order-button" style="color: white;">
+                              Cancel
+                            </button>
+                            <button onclick="updateOrder('{{this._id}}')" id="changeButton-{{this._id}}" class="btn btn-success order-button" style="color: white;">
+                              Change Order Status
+                            </button>
+                            {{/if}}
+                            
+                          </td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                {{!-- <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="products-datatable_info" role="status" aria-live="polite">Showing products 1 to 5 of 12</div></div><div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate"><ul class="pagination pagination-rounded"><li class="paginate_button page-item previous disabled" id="products-datatable_previous"><a href="#" aria-controls="products-datatable" data-dt-idx="0" tabindex="0" class="page-link"><i class="mdi mdi-chevron-left"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="products-datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item"><a href="#" aria-controls="products-datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item"><a href="#" aria-controls="products-datatable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="products-datatable_next"><a href="#" aria-controls="products-datatable" data-dt-idx="4" tabindex="0" class="page-link"><i class="mdi mdi-chevron-right"></i></a></li></ul></div></div>
+                </div> --}}
+              </div>
+
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+
+  </div>
+  <!-- End Content -->
+
+  <!-- Footer Start -->
+  {{!-- <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <script>document.write(new Date().getFullYear())</script>20222022 © Hyper
+          - Coderthemes.com
+        </div>
+        <div class="col-md-6">
+          <div class="text-md-end footer-links d-none d-md-block">
+            <a href="javascript: void(0);">About</a>
+            <a href="javascript: void(0);">Support</a>
+            <a href="javascript: void(0);">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> --}}
+  <!-- end Footer -->
+
+</div>

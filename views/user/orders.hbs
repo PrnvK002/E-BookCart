@@ -1,0 +1,110 @@
+<div class="home">
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+    <div class="container-fluid my-5 d-flex justify-content-center">
+    <div class="card card-1">
+        <div class="card-header bg-white" id="orderThanks">
+            <div class="media flex-sm-row flex-column-reverse justify-content-between ">
+                <div class="col my-auto">
+                    <h4 class="mb-0">Thanks for your Order,<span class="change-color">{{user.email}}</span> !</h4>
+                </div>
+            </div>
+        </div>
+        
+        {{#each orderData}}
+        <div class="card-body" id="orderRow-{{this._id}}" style="border-bottom: solid 1px;">
+            {{!-- <div class="row justify-content-between mb-3">
+                <div class="col-auto">
+                    <h6 class="color-1 mb-0 change-color">Receipt</h6>
+                </div>
+                <div class="col-auto "> <small>Receipt Voucher : 1KAU9-84UIL</small> </div>
+            </div> --}}
+            {{#each this.products}}
+            <div class="row" >
+                <div class="col">
+                    <div class="card card-2">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="sq align-self-center col-sm-6 col-12"> 
+                                    <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/images/products/{{this.product_id.image.[0]}}" width="135" height="135" /> 
+                                </div>
+                                <div class="media-body my-auto text-right col-sm-6 col-12">
+                                    <div class="row my-auto flex-column flex-md-row">
+                                        <div class="col my-auto">
+                                            <h6 class="mb-0"> {{this.product_id.productName}}</h6>
+                                        </div>
+                                        {{!-- <div class="col-auto my-auto"> <small>Golden Rim </small></div>
+                                        <div class="col my-auto"> <small>Size : M</small></div> --}}
+                                        <div class="col my-auto"> <small>Qty : {{this.number}}</small></div>
+                                        {{!-- <div class="col my-auto"> <small>Order Status : {{this.order_status}}</small></div> --}}
+                                        <div class="col my-auto">
+                                            <h6 class="mb-0">&#8377;{{this.item_total}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-3 ">
+                            {{!-- <div class="row" >
+                                <div style="margin-left:auto ;">
+                                <div class="col-md-3 mb-3">
+                                    <a href="/track-order/{{this.product_id._id}}" style="text-decoration: none;" class="btn btn-success">
+                                    Track Order
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                   <a href="/cancel-order/{{this.product_id._id}}" style="text-decoration: none;" class="btn btn-danger">
+                                    Cancel Order
+                                   </a>
+                                </div>
+                            </div>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+           
+            
+            <div style="display: flex; justify-content: space-between ; margin:1rem 5rem; ">
+           
+            <div class="row " style="">
+                
+                <div class="col-md-3 mb-3">
+                    <button class="btn btn-danger" type="button" onclick="cancelOrder('{{this._id }}','{{this.total_prize}}')" >Cancel Order</button>
+                </div>
+            </div>
+             <div class="row mt-4" style="margin: 12px;">
+                <div class="col" style="text-align: center;">
+                    
+                    <div class="row">
+                        
+                        <div style="display: flex;justify-content:space-around;flex:wrap">
+                        <div class="col-sm-6 col-12">
+                            <p style="margin-right: 1rem;"><b>Total  : </b></p>
+                        </div>
+                        <div class="col-sm-6 col-12" style="width: fit-content;">
+                            <p class="m-1">&#8377;{{this.total_prize}}</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+
+    </div>
+    </div>
+    </div>
+<script>
+
+    setTimeout(()=>{
+        document.getElementById('orderThanks').style.display = "none";
+    } , 3000 );
+
+</script>

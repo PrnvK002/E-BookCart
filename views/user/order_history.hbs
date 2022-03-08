@@ -1,0 +1,160 @@
+<div class="home">
+
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+      <!-- MAIN CONTENT -->
+      <div id="t3-content" class="t3-content col-xs-12">
+        {{! <div id="item-removed-msg" style="display: none;">
+          <div id="system-message">
+            <div class="alert alert-success">
+              <a class="close" data-dismiss="alert">×</a>
+
+              <h4 class="alert-heading">success</h4>
+              <div>
+                <p>Item removed from cart.</p>
+              </div>
+            </div>
+          </div>
+        </div> }}
+
+        <div id="akeeba-renderjoomla">
+          <div class="j2store">
+            <div class="j2store-cart">
+              <div class="span12"></div>
+              <div class="row-fluid">
+                <div class="span12">
+
+                  {{#if orderData}}
+                    <table class="j2store-cart-table table">
+                      <thead>
+                        <tr>
+                          <th>Date
+                            {{#if o}}
+                              <button
+                                style="border:none;outline:none;background:none"
+                                data-id="{{o}}"
+                                id="filter"
+                                onclick="filterOrders()"
+                              ><ion-icon
+                                  name="swap-vertical-outline"
+                                ></ion-icon></button>
+                            {{else}}
+                              <button
+                                style="border:none;outline:none;background:none"
+                                data-id="Ascending"
+                                id="filter"
+                                onclick="filterOrders()"
+                              ><ion-icon
+                                  name="swap-vertical-outline"
+                                ></ion-icon></button>
+                            {{/if}}
+                          </th>
+                          <th>Order ID</th>
+                          <th>Image</th>
+                          <th>Products</th>
+                          <th></th>
+                          <th>Quantity</th>
+                          <th>Total Price</th>
+                          <th>Order Status</th>
+                          <th>Payment Method</th>
+                          <th>Payment Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each orderData}}
+                          <tr id="product-row-{{this.product_id._id}}">
+                            {{!-- <td>
+                            <img src="/images/products/{{this.product_id.image.[0]}}" width="50" alt="" srcset="">
+                          </td> --}}
+                            <td>{{this.ordered_date}}</td>
+                            <td>{{this._id}}</td>
+                            <td>
+                              {{#each this.products}}
+                                <img
+                                  src="/images/products/{{this.product_id.image.[0]}}"
+                                  style="padding-bottom: 10px;"
+                                  width="50"
+                                  alt=""
+                                  srcset=""
+                                />
+                              {{/each}}
+                            </td>
+                            <td style="display: flex; flex-direction : column">
+                              {{#each this.products}}
+                                {{this.product_id.productName}},
+                              {{/each}}
+                            </td>
+                            <td></td>
+                            <td style="display: flex; flex-direction : column">
+                              {{#each this.products}}
+                                {{this.number}}
+                                ,
+                              {{/each}}
+                            </td>
+                            <td>
+                              {{this.total_prize}}
+                            </td>
+                            <td
+                              id="status-{{this._id}}"
+                              class="order_status"
+                              data-id="{{this._id}}"
+                            >
+                              {{this.order_status}}
+                            </td>
+                            <td>
+                              {{this.payment_method}}
+                            </td>
+                            <td>
+                              {{this.payment_status}}
+                            </td>
+                            <td>
+                              {{#if this.cancel_status}}
+                                {{! <a href="#" style="padding: background-color:#e66b63;" class="btn btn-danger"> 
+                              <button disabled style="border: none;background:none"> Cancel Order </button>
+                             </a> }}
+                              {{else}}
+                                <button
+                                  onclick="cancelOrderHistory('{{this._id}}','{{this.total_prize}}')"
+                                  id="cancelButton-{{this._id}}"
+                                  class="btn btn-danger"
+                                >
+                                  Cancel Order
+                                </button>
+
+                              {{/if}}
+                            </td>
+                          </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  {{else}}
+
+                    <div id="system-message">
+                      <div class="alert alert-warning">
+                        <a class="close" data-dismiss="alert">×</a>
+
+                        {{! <h4 class="alert-heading">success</h4> }}
+                        <div>
+                          <p>No orders found</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  {{/if}}
+                  <!-- Display plugin results -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- //MAIN CONTENT -->
+
+    </div>
+  </div>
+
+</div>

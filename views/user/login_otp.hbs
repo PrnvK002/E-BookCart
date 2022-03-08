@@ -1,0 +1,74 @@
+<div class="home">
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="container forgot">
+      <div class="forgot-box col-12 col-md-4  " style="height:max-content">
+        <div class="heading">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <h3>OTP Cofirmation</h3>
+          <p style="font-size: 1.5rem;">Enter the otp that we sent to your mail</p>
+        </div>
+
+    {{!-- start of error block --}}
+
+    <div id="error-block" style="display: none;position : fixed ; top: 10rem;width:70%;z-index:100">
+      <div id="system-message">
+        <div class="alert alert-warning">
+          {{!-- <a class="close" data-dismiss="alert">×</a> --}}
+          <h4 class="alert-heading"></h4>
+          <div>
+            <p id="err-msg"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{#if error}}
+        <div id="error-msg" style="position : fixed ; left:10rem;top: 10rem;width:70%;z-index:10000">
+          <div id="system-message">
+            <div class="alert alert-warning">
+              <a class="close" data-dismiss="alert">×</a>
+
+              <h4 class="alert-heading"></h4>
+              <div>
+                <p>{{error}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    {{/if}}
+
+        {{!-- end of error block --}}
+
+
+            <form action="/login_otp" method="post" onsubmit="return otpValidation()">
+                <div class="input-form">
+                    
+                    <input type="text" value="{{data.phone}}" id="phone" name="phone" style="display: none;"/>
+                    <input type="text" value="{{data.time}}" id="time" name="time" style="display: none;"/>
+                    
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="number" name="otp" class="input-otp" id="otp">
+                </div>
+                <div>
+                    <p style="color: red;"> Will Expire in <span id="timer"></span> </p> 
+                </div>
+
+                <div class="submit">
+                    <a href="/login_otp" class="btn btn-primary" style="padding:4px">Back</a>
+                    <button type="submit" class="btn btn-primary" style="padding:5px">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+<script>  
+  var timeleft = 1;
+  var downloadTimer = setInterval(function(){
+  if(timeleft >= 60){
+    clearInterval(downloadTimer);
+  }
+  document.getElementById("timer").innerHTML = 60 - timeleft;
+  timeleft += 1;
+}, 1000);
+</script>

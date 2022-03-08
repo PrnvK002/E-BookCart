@@ -1,0 +1,62 @@
+<div class="home">
+    <div id="t3-mainbody" class="container t3-mainbody">
+
+          <div id="address_block">
+
+              <form action="/add-address" method="post">
+                <!-- Company name -->
+
+                <div class="md-form md-outline my-0" style="width:100% ;">
+                  <label for="companyName"> Company name </label>
+                  <input type="text" name="company" id="companyName" class="form-control mb-0" style="width:100%;">
+                </div>
+
+                <!-- Country -->
+                 <div class="md-form md-outline mt-0" style="width:100% ;">
+                  <label for="country" class="active">Country</label>
+                  <input type="text" name="country" id="country" class="form-control" value="india" placeholder="india" style="width:100%;" >
+                </div>
+
+                <!-- Address Part 1 -->
+                <div class="md-form md-outline mt-0" style="width:100%;">
+                  <label for="address" class="active">Address</label>
+                  <textarea type="text" name="address" id="address" placeholder=" House name  House number and street name" class="form-control" style="width:100% ;" rows="3" required>
+                  </textarea>
+                </div>
+
+     
+
+                <!-- Postcode / ZIP -->
+                <div class="md-form md-outline" style="width:100% ;">
+                  <label for="pin-code">Postcode / ZIP</label>
+                  <input type="text" id="pin" name="pin" class="form-control" style="width:100% ;" required>
+                </div>
+
+                  <div class="md-form md-outline" style="width:100% ;">
+                  <label for="pin-code">Landmark</label>
+                  <input type="text" id="landmark" placeholder="enter a known place near your house like a temple a library etc.." name="landmark" class="form-control" style="width:100% ;" required>
+                </div>
+
+                <!-- Town / City -->
+                <div class="md-form md-outline" style="width:100% ;" >
+                  <label for="town">Town / City</label>
+                  <input type="text" id="town" name="town" class="form-control" style="width:100% ;" required>
+                </div>
+
+            
+
+                <!-- Additional information -->
+                <div class="md-form md-outline" style="width:100% ;">
+                  <label for="additional-information">Additional information</label>
+                  <textarea id="additional-information" class="md-textarea form-control" name="additionalInfo" rows="4" style="width:100% ;"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success" > Submit </button>
+
+                </form>
+              
+              </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,132 @@
+
+<script>
+  $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
+
+<div class="content-page">
+  <div class="content">
+
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box">
+          
+          <h4 class="page-title">Products</h4>
+        </div>
+      </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="table-responsive">
+              <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12">
+                  <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                      
+                    <div class="row">
+                      <div class="col-sm-12">
+                        {{#if salesReport}}
+                        <table class="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline display nowrap" id="example" aria-describedby="products-datatable_info" style="width: 975px;">
+
+
+
+                        <thead class="table-light">
+                          <tr>
+
+                            <th class="all sorting sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 211.8px;" aria-label="Product: activate to sort column descending" aria-sort="ascending">
+                                Product
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 90.8px;" aria-label="Category: activate to sort column ascending">
+                                  Sold Quantity
+                            </th>
+                            {{!-- <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 41.8px;" aria-label="Price: activate to sort column ascending">
+                              Price
+                      
+                            </th> --}}
+                            <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                              Total
+                            </th>
+                          </tr>
+
+                        </thead>
+                      <tbody>  
+                        {{#each salesReport}}
+                      <tr class="odd" id="row-{{this._id}}">
+
+                          <td class="sorting_1">
+                            <p class="m-0 d-inline-block align-middle font-16">
+                              <a href="" class="text-body">{{this._id}}</a>                              
+                            </p>
+                          </td>
+                          <td>
+                           {{this.totalSoldCount}}
+                          </td>
+                         
+                          <td>
+                            {{this.totalAmount}}
+                          </td>
+                          
+                        </tr>
+                        {{/each}}
+                       
+                        </tbody>
+                    </table>
+                     {{else}}
+
+                        <p style="color: red;"> Products Not found </p>
+
+                     {{/if}}
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+
+  </div>
+  <!-- End Content -->
+
+  <!-- Footer Start -->
+  {{!-- <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <script>document.write(new Date().getFullYear())</script>20222022 © Hyper
+          - Coderthemes.com
+        </div>
+        <div class="col-md-6">
+          <div class="text-md-end footer-links d-none d-md-block">
+            <a href="javascript: void(0);">About</a>
+            <a href="javascript: void(0);">Support</a>
+            <a href="javascript: void(0);">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> --}}
+  <!-- end Footer -->
+
+</div>
+
+

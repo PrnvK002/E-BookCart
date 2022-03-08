@@ -1,0 +1,211 @@
+<div class="content-page">
+  <div class="content">
+
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box">
+          <h4 class="page-title">Products</h4>
+        </div>
+      </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-sm-5">
+                <a href="/admin/add_coupens" class="btn btn-danger mb-2">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                  Add coupens
+                </a>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <div
+                id="products-datatable_wrapper"
+                class="dataTables_wrapper dt-bootstrap5 no-footer"
+              ><div class="row"><div class="col-sm-12">
+                    <div
+                      id="products-datatable_wrapper"
+                      class="dataTables_wrapper dt-bootstrap5 no-footer"
+                    >
+                      <div class="row">
+                        <div
+                          class="col-sm-12 col-md-6"
+                          style="margin-left: auto;"
+                        >
+                          {{! <div id="products-datatable_filter" class="dataTables_filter">
+                                <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="products-datatable"></label>
+                            </div> }}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          {{#if coupens}}
+                            <table
+                              class="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline"
+                              id="products-datatable"
+                              aria-describedby="products-datatable_info"
+                              style="width: 975px;"
+                            >
+                              <thead class="table-light">
+                                <tr>
+
+                                  <th
+                                    class="all sorting sorting_asc"
+                                    tabindex="0"
+                                    aria-controls="products-datatable"
+                                    rowspan="1"
+                                    colspan="1"
+                                    style="width: 211.8px;"
+                                    aria-label="Product: activate to sort column descending"
+                                    aria-sort="ascending"
+                                  >
+                                    Coupen Name
+                                  </th>
+                                  <th
+                                    class="sorting"
+                                    tabindex="0"
+                                    aria-controls="products-datatable"
+                                    rowspan="1"
+                                    colspan="1"
+                                    style="width: 63.8px;"
+                                    aria-label="Quantity: activate to sort column ascending"
+                                  >
+                                    Coupen Code
+                                  </th>
+                                  {{! <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 86.8px;" aria-label="Added Date: activate to sort column ascending">
+                                Added Date
+                          </th> }}
+                                  <th
+                                    class="sorting"
+                                    tabindex="0"
+                                    aria-controls="products-datatable"
+                                    rowspan="1"
+                                    colspan="1"
+                                    style="width: 41.8px;"
+                                    aria-label="Price: activate to sort column ascending"
+                                  >
+                                    Expiry Date
+                                  </th>
+                                  <th
+                                    class="sorting"
+                                    tabindex="0"
+                                    aria-controls="products-datatable"
+                                    rowspan="1"
+                                    colspan="1"
+                                    style="width: 63.8px;"
+                                    aria-label="Quantity: activate to sort column ascending"
+                                  >
+                                    Offer Rate
+                                  </th>
+                                  <th
+                                    class="sorting"
+                                    tabindex="0"
+                                    aria-controls="products-datatable"
+                                    rowspan="1"
+                                    colspan="1"
+                                    style="width: 63.8px;"
+                                    aria-label="Quantity: activate to sort column ascending"
+                                  >
+                                    No. of Used users
+                                  </th>
+                                  <th
+                                    class="sorting"
+                                    tabindex="0"
+                                    aria-controls="products-datatable"
+                                    rowspan="1"
+                                    colspan="1"
+                                    style="width: 63.8px;"
+                                    aria-label="Quantity: activate to sort column ascending"
+                                  >
+                                    Action
+                                  </th>
+                                </tr>
+
+                              </thead>
+                              <tbody>
+                                {{#each coupens}}
+                                  <tr class="odd" id="row-{{this._id}}">
+
+                                    <td>
+                                      {{this.coupenName}}
+
+                                    </td>
+
+                                    <td>
+                                      {{this.coupenCode}}
+                                    </td>
+                                    <td>
+                                      {{this.expiry_date}}
+                                    </td>
+
+                                    <td>
+                                      {{this.offer_rate}}
+                                    </td>
+                                    <td>
+
+                                      {{this.user_number}}
+
+                                    </td>
+
+                                    <td class="table-action" style="">
+                                      {{!-- <a href="/admin/edit-offer/{{this._id}}" class="action-icon">
+                              <ion-icon name="create-outline"></ion-icon>
+                            </a> --}}
+                                      <a
+                                        onclick="deleteCoupen('{{this._id}}')"
+                                        class="action-icon"
+                                        style="color: red;"
+                                      >
+                                        <ion-icon
+                                          name="trash-outline"
+                                        ></ion-icon>
+                                      </a>
+                                    </td>
+                                  </tr>
+                                {{/each}}
+                              </tbody>
+                            </table>
+                          {{else}}
+
+                            <div
+                              class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
+                              role="alert"
+                            >
+                              {{!-- <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close"
+                              ></button> --}}
+                              <strong>Error -</strong>
+                              There are no coupens added!
+                            </div>
+
+                          {{/if}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+
+  </div>
+  <!-- End Content -->
+
+</div>

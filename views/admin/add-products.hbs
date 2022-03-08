@@ -1,0 +1,128 @@
+<div class="content-page">
+  <div class="content" style="padding-right: 3rem;">
+    <div class="row" style="margin-top: 3rem;">
+      <div class="col-12">
+        <div class="page-title-box">
+          <h4 class="page-title"> Add Products</h4>
+        </div>
+      </div>
+    </div>
+    <form action="/admin/add-products" method="post" enctype="multipart/form-data" onclick = "return validationAdd()">
+  <div class="mb-3">
+    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" id="productName_err" style="display: none;" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <strong>Error - </strong> Product name must be filled
+</div>
+    <label for="simpleinput" class="form-label">Product Name</label>
+    <input type="text" id="productName" name="productName" class="form-control" required>
+</div>
+
+<div class="mb-3">
+    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" id="author_err" style="display: none;" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>Error - </strong> Author must be filled
+    </div>
+    <label for="example-email" class="form-label">Author</label>
+    <input type="text" id="author" name="author" class="form-control" required>
+</div>
+
+
+
+<div class="mb-3">
+    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" id="description_err" style="display: none;" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <strong>Error - </strong> Description must be filled
+    </div>
+    <label for="example-textarea" class="form-label">Description</label>
+    <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+</div>
+
+<div class="row">
+
+  <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" style="display: none;" id="stock_err" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>Error - </strong> Stock Must be filled
+    </div>
+     <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" style="display: none;" id="price_err" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>Error - </strong> Price must be filled
+      </div>  
+
+  <div class="mb-3 col-md-4">
+      <label for="example-select" class="form-label">Category</label>
+      <select class="form-select mb-3" name="category" required>
+      <option selected>Select a category</option>
+      {{#each category}}
+      <option name="category" value="{{this.categoryName}}">{{this.categoryName}}</option>
+      {{/each}}
+  </select>
+  </div>
+
+  <div class="mb-3 col-md-4">
+    
+      <label for="example-palaceholder" class="form-label">Stock</label>
+      <input type="number" id="stock" class="form-control" name="stock" required>
+  </div>
+  <div class="mb-3 col-md-4">
+       
+      <label for="example-password" class="form-label">Price</label>
+      <input type="number" id="price" class="form-control" name="price">
+  </div>
+</div>
+
+{{!-- 
+<div class="mb-3">
+    <label for="example-date" class="form-label">Date</label>
+    <input class="form-control" id="example-date" type="date" name="date" required>
+</div> --}}
+
+ {{!-- <div style="display: flex;justify-content: space-around;flex-wrap:wrap" >
+
+   <img src="" width="200" id="image_preview1" alt="">
+   <img src="" width="200" id="image_preview2" alt="">
+   <img src="" width="200" id="image_preview3" alt="">
+
+   
+
+ </div>
+
+
+<div class="mb-3">
+    <p style="color:red ; display : none" id="invalid">Invalid file format</p>
+    <label for="example-fileinput" class="form-label">Upload images</label>
+    <input type="file" id="upload_file1" name="product-image1"  class="form-control upload_file" onchange="return fileValidation(event,'upload_file1');" required>
+    <input type="file" id="upload_file2" name="product-image2"  class="form-control upload_file" onchange="return fileValidation(event,'upload_file2');" required>
+    <input type="file" id="upload_file3" name="product-image3"  class="form-control upload_file" onchange="return fileValidation(event,'upload_file3');" required>
+</div> --}}
+
+<div class="mb-3">
+    <p style="color:red ; display : none" id="invalid">Invalid file format</p>
+
+    <img src="" id="imgView1" alt="" style="width:100px">
+    {{!-- <input type="file" id="id_image1" name="image" accept="image/*" onchange="viewImage1(event)"><br> --}}
+    <input type="file" id="id_image1" name="product_image1" accept="image/*" class="form-control upload_file" onchange="viewImage1(event)" required>
+    <div id="image-box1" style="width:60%" class="image-container"></div>
+    <button class="btn btn-outline-info" id="crop-btn1" style="width: 60%; margin-top: 10px; display: none;"
+      type="button">Crop</button>
+    <img src="" id="imgView2" alt="" style="width:100px">
+    <input type="file" id="id_image2" name="product_image2" accept="image/*" class="form-control upload_file" onchange="viewImage2(event);" required>
+    {{!-- <input type="file" id="id_image2" name="image" accept="image/*" onchange="viewImage2(event)"> <br> --}}
+    <div id="image-box2" style="width:60%" class="image-container"></div>
+    <button class="btn btn-outline-info" id="crop-btn2" style="width: 60%; margin-top: 10px; display: none;"
+      type="button">Crop</button>
+     <img src="" id="imgView3"  alt="" style="width:100px">
+    <input type="file" id="id_image3" name="product_image3" accept="image/*" class="form-control upload_file" onchange="viewImage3(event);" required>
+    {{!-- <input type="file" id="id_image3" name="image" accept="image/*" onchange="viewImage3(event)"><br> --}}
+    <div id="image-box3" style="width:60%" class="image-container"></div>
+    <button class="btn btn-outline-info" id="crop-btn3" style="width: 60%; margin-top: 10px; display: none;"
+        type="button">Crop</button>
+</div>
+
+
+
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+</div>

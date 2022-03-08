@@ -1,0 +1,44 @@
+  <div class="home">
+  <div id="t3-mainbody" class="container t3-mainbody">
+      <h3>Change Address</h3>
+      <form action="/change-address" method="post">
+               
+                <input type="text" style="display: none;" name="id" value="{{address._id}}">
+                <!-- Country -->
+                 <div class="md-form md-outline mt-0" style="width:100% ;">
+                  <label for="country" class="active">Country</label>
+                  <input type="text" name="country" id="country" class="form-control" value="{{address.country}}" placeholder="{{address.country}}" style="width:100%;" >
+                </div>
+
+                <!-- Address Part 1 -->
+                <div class="md-form md-outline mt-0" style="width:100%;">
+                  <label for="address" class="active">Address</label>
+                  <textarea type="text" name="address" id="address" value=" {{address.address}}" placeholder="{{address.address}}" class="form-control" style="width:100%;padding:0" rows="3" required>
+                  {{address.address}}
+                  </textarea>
+                </div>
+
+
+                <!-- Postcode / ZIP -->
+                <div class="md-form md-outline" style="width:100% ;">
+                  <label for="pin-code">Postcode / ZIP</label>
+                  <input type="text" id="pin" name="pin" class="form-control" style="width:100% ;" value="{{address.pin}}" placeholder="{{address.pin}}" required>
+                </div>
+
+                  <div class="md-form md-outline" style="width:100% ;">
+                  <label for="pin-code">Landmark</label>
+                  <input type="text" id="landmark" value="{{address.landmark}}" placeholder="{{address.landmark}}" name="landmark" class="form-control" style="width:100% ;" required>
+                </div>
+
+                <!-- Town / City -->
+                <div class="md-form md-outline" style="width:100% ;" >
+                  <label for="town">Town / City</label>
+                  <input type="text" id="town" name="town" value="{{address.town}}" placeholder="{{address.town}}" class="form-control" style="width:100% ;" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block waves-effect waves-light" style="margin-top: 1rem;">Submit</button>
+
+                </form>
+
+</div>
+</div>

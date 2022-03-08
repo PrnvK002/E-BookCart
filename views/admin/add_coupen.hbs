@@ -1,0 +1,45 @@
+<div class="content-page">
+  <div class="content" style="padding-right: 3rem;">
+    <div class="row" style="margin-top: 3rem;">
+      <div class="col-12">
+        <div class="page-title-box">
+          <h4 class="page-title"> Add Coupen</h4>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info alert-dismissible fade show" id="coupen_error_section" style="display: none;" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <p ><strong> Error </strong> <span id="coupen_error"> Please enter a valid! </span></p>
+    </div>
+    <form action="/admin/add_coupens" method="post" onclick="return validateCoupen()">
+    
+
+        <div class="row m-3">
+             <div class="mb-3 col-md-4">
+                <label for="offer_rate" class="form-label">Coupen Name</label>
+                <input type="text" id="coupenName" name="coupenName" placeholder="Enter the name" class="form-control" required>
+            </div>
+            <div class="mb-3 col-md-4">
+                <label for="offer_rate" class="form-label">Offer Rate</label>
+                <input type="text" id="offer_rate" name="offer_rate" placeholder="Enter the offer rate" class="form-control" required>
+            </div>
+
+        </div>
+        <div class="row m-3">
+             <div class="mb-3 col-md-4">
+                <label for="offer_rate" class="form-label">Coupen Code</label>
+                <input type="text" id="coupenCode" name="coupenCode" placeholder="Enter the code" class="form-control" required>
+            </div>
+
+            <div class="mb-3 col-md-4">
+                <label for="expiry-date" class="form-label">Expiry Date</label>
+                <input class="form-control" id="expiry-date"  type="date" name="expiry_date" required>
+            </div>
+        </div>
+        
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="content-page" id="background">
+  <div class="content">
+    <div class="row" style="margin-top: 3rem;">
+      <div class="col-md-6">
+        <div class="page-title-box">
+          <h4 class="page-title">View Category</h4>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="page-title-box">
+          <button onclick="viewAddCategory()" class="btn btn-danger mb-2">Add Category</button>
+        </div>
+      </div>
+    </div>
+      <table class="table table-striped table-centered mb-0">
+          <thead>
+              <tr>
+                  <th>Category Name</th>
+                  
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+            {{#each category }}
+              <tr id="row-{{this._id}}">
+                  <td class="table-user">
+                    {{this.categoryName}}
+                  </td>
+                  <td class="table-action">
+                      <button onclick="deleteCategory('{{this._id}}','{{this.categoryName}}')" style="border: none;outline:none;background:none" class="action-icon">
+                      <ion-icon name="trash-outline"></ion-icon>
+                      </button>
+                  </td>
+              </tr>
+            {{/each}}
+          </tbody>
+      </table>
+
+    {{!-- popup view section start --}}
+
+      <div id="popup-wrapper" style="box-sizing: content-box;" class="popup-container">
+        <div class="popup-content">
+            <span id="close">&times;</span>
+            <h3 style="text-align: center;">Add Category</h3>
+            {{!-- <form action="/admin/add-category" method="post"> --}}
+            <div id="loading" style="margin-left:50%;"></div>
+
+
+            <p style="display:none;color:red;text-align:center;font-size:small" id="category_error" >Category Already Exists</p>
+            
+
+{{!-- loading screen start --}}
+
+
+
+            <div style="text-align: center;">
+
+                <input type="text" name="categoryName" id="category" style=" width: 50%; margin-bottom:0.6rem" required>
+
+            <div>
+              
+              <button type="button" onclick="addCategory()" style="width: 50%; background : green ; color : white ; border: none ; outline : none ; font-size: 1rem">
+                Submit
+              </button>
+
+            </div>
+            </div>
+
+    {{!-- </form> --}}
+    
+
+  </div>
+ </div>
+
+
+        {{!-- popup view section end --}}
+
+
+  </div>
+
+</div>
+
+

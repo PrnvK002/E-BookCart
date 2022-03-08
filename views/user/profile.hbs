@@ -1,0 +1,78 @@
+<div class="home">
+
+  <div id="t3-mainbody" class="container t3-mainbody">
+
+    <div class="row" style="display: flex;">
+      <!-- Sidenav -->
+      <div class="sidenav" style="margin-right:3rem;">
+        <div class="sidenav_profile">
+          <img src="{{user.image}}" alt="" width="100" height="100" />
+
+          <div class="name">
+                <h6>{{user.fullname}}</h6>
+          </div>
+          <div class="job">
+                <h6>{{user.email}}</h6>
+          </div>
+          <div class="name">
+                <h6>{{user.phone}}</h6>
+          </div>
+        </div>
+
+        <div class="sidenav-url">
+          <div class="url">
+            <a href="/change-password" >Change Password</a>
+            <hr align="center" />
+          </div>
+           {{!-- <div class="url">
+            <a href="/change-phone">Change Phone</a>
+            <hr align="center" />
+          </div> --}}
+          <div class="sidenav-url">
+          <div class="url">
+            <a href="/add-address">Add Address</a>
+            <hr align="center" />
+          </div>
+        </div>
+      </div>
+      </div>
+      
+      <!-- End -->
+
+      <!-- Main -->
+      {{#if address}}
+      <div class="main" style="margin-left: 5rem;">
+        <h2>Address</h2>
+
+        <div class="address_section">
+            
+             <label for="html">Address</label><br>
+                 
+                  {{#each address}}
+
+                  <div style="margin-top: 1rem;" id="address_row-{{this._id}}" >
+                    <div class="button-area" style="margin-bottom: 1rem;">
+                      <a href="/edit-address/{{this._id}}" class="btn btn-success"> Edit Address </a>
+                      <button class="btn btn-danger" onclick="deleteAddress('{{this._id}}')" > Delete </button>
+                    </div>
+
+                  <textarea name="address" style="height: fit-content; width : 80%" onkeypress="return false;" cols="30" placeholder=`{{this.address}} \n {{this.pin}} \n {{this.pin}} \n {{this.town}} \n {{this.landmark}} \n {{this.country}}` rows="10">
+                   
+
+                    {{this.address}} 
+                    {{this.pin}}
+                    {{this.town}}  
+                    {{this.landmark}}  
+                    {{this.country}}
+
+                  </textarea>
+                  </div>
+                  {{/each}}
+
+        </div>
+
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

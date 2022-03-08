@@ -1,0 +1,377 @@
+<div class="home">
+
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+      <!-- MAIN CONTENT -->
+      <div id="t3-content" class="t3-content col-xs-12">
+        <div id="system-message-container">
+        </div>
+
+        <div id="akeeba-renderjoomla">
+          <div class="j2store-single-product downloadable detail bs2">
+            <div
+              class="product-210 downloadable-product"
+            >
+              <div class="row">
+                <div class="col-sm-6" >
+                  <div class="j2store-mainimage image-hover-zoom" style="text-align: center;">
+                    {{!-- <span
+                      class="zoom"
+                      id="j2store-item-main-image-210"
+                      style="position: relative; overflow: hidden;"
+                    > --}}
+                      <img
+                        alt=""
+                        id="main_image"
+                        class="j2store-product-main-image j2store-img-responsive"
+                        src="/images/products/{{product.image.[0]}}"
+                        width="200"
+                      />
+                      {{!-- <img
+                        src="/images/products/{{product.image.[0]}}"
+                        class="zoomImg"
+                        style="position: absolute; top: -133.376px; left: -1.0434px; opacity: 0; border: none; max-width: none; width: 555px; height: 710px;"
+                      /></span> --}}
+                  </div>
+                  {{!-- <script type="text/javascript">
+                    var
+                    main_image="https://demo.joomlabuff.com/bookstore/images/products/books/book4.png";
+                    j2store.jQuery(document).ready(function(){ var enable_zoom =
+                    1; if(enable_zoom){
+                    j2store.jQuery('#j2store-item-main-image-210').zoom(); } });
+                  </script> --}}
+
+                  <div class="j2store-product-additional-images">
+
+                    <ul class="additional-image-list">
+                      {{#each product.image}}
+                      <li>
+                        
+                        <img
+                          onclick="viewMain('{{this}}')"
+                          id="addimage-{{this}}"
+                          class="j2store-item-additionalimage-preview j2store-img-responsive"
+                          src="/images/products/{{this}}"
+                          alt="A Social History 4"
+                          width="100"
+                        />
+                      </li>
+                      {{/each}}
+                      {{!-- <li>
+                        <img
+                          onmouseover="setMainPreview('addimage-210-1', 210, 1, 'inner')"
+                          onclick="setMainPreview('addimage-210-1', 210, 1, 'inner')"
+                          id="addimage-210-1"
+                          class="j2store-item-additionalimage-preview j2store-img-responsive"
+                          src="https://demo.joomlabuff.com/bookstore/images/products/books/book19.png"
+                          alt="A Social History 4"
+                          width="100"
+                        />
+                      </li>
+                      <li>
+                        <img
+                          onmouseover="setMainPreview('addimage-210-2', 210, 1, 'inner')"
+                          onclick="setMainPreview('addimage-210-2', 210, 1, 'inner')"
+                          id="addimage-210-2"
+                          class="j2store-item-additionalimage-preview j2store-img-responsive"
+                          src="https://demo.joomlabuff.com/bookstore/images/products/books/book17.png"
+                          alt="A Social History 4"
+                          width="100"
+                        />
+                      </li>
+                      <li>
+                        <img
+                          onmouseover="setMainPreview('additial-main-image-210', 210, 1, 'inner')"
+                          onclick="setMainPreview('additial-main-image-210', 210, 1, 'inner')"
+                          id="additial-main-image-210"
+                          alt="A Social History 4"
+                          class="j2store-item-additionalimage-preview j2store-img-responsive"
+                        src="https://demo.joomlabuff.com/bookstore/images/products/books/book4.png"
+                          width="100"
+                        />
+                      </li> --}}
+                    </ul>
+                  </div>
+                </div>
+               
+                <div style="margin-top: 5rem;">
+
+                <div class="col-sm-6">
+
+                  <h2 itemprop="name" class="product-title">
+                    {{product.productName}}
+                  </h2>
+
+                  <style type="text/css">
+                    .app_socialmedia img{ width:32px; } .fa-3 { font-size: 3em;
+                    }
+                  </style>
+                  {{!-- <div id="j2store_app_shareButton">
+                    <a
+                      href="javascript:void(0);"
+                      class="app_socialmedia"
+                      onclick="j2store_socialsharing_twitter_click('Hey Check this ! A Social History 4  ($40.00) https://demo.joomlabuff.com/bookstore/index.php/e-books/health-and-beauty/women-s-health/a-social-history-4')"
+                    >
+                      <img
+                        alt="twitter"
+                        src="https://demo.joomlabuff.com/bookstore/images/social-icons/twitter.png"
+                      />
+                    </a>
+
+                    <a
+                      href="javascript:void(0);"
+                      class="app_socialmedia"
+                      onclick="j2store_socialsharing_facebook_click('Hey Check this ! A Social History 4  ($40.00) https://demo.joomlabuff.com/bookstore/index.php/e-books/health-and-beauty/women-s-health/a-social-history-4')"
+                    >
+                      <img
+                        alt="facebook"
+                        src="https://demo.joomlabuff.com/bookstore/images/social-icons/facebook.png"
+                      />
+                    </a>
+
+                    <a
+                      href="javascript:void(0);"
+                      class="app_socialmedia"
+                      onclick="j2store_socialsharing_google_click('Hey Check this ! A Social History 4  ($40.00) https://demo.joomlabuff.com/bookstore/index.php/e-books/health-and-beauty/women-s-health/a-social-history-4')"
+                    >
+                      <img
+                        alt="googleplus"
+                        src="https://demo.joomlabuff.com/bookstore/images/social-icons/googleplus.png"
+                      />
+                    </a>
+
+                    <a
+                      href="javascript:void(0);"
+                      class="app_socialmedia"
+                      onclick="j2store_socialsharing_pinterest_click('Hey Check this ! A Social History 4  ($40.00) https://demo.joomlabuff.com/bookstore/index.php/e-books/health-and-beauty/women-s-health/a-social-history-4','https://demo.joomlabuff.com/bookstore/images/products/books/book4.png')"
+                    >
+                      <img
+                        alt="pinterest"
+                        src="https://demo.joomlabuff.com/bookstore/images/social-icons/pinterest.png"
+                      />
+                    </a>
+                    <div class="reset"></div>
+                  </div> --}}
+                  <div class="price-sku-brand-container row">
+                    <div class="col-sm-6">
+
+                      <div
+                        itemprop="offers"
+                        itemscope=""
+                        itemtype="http://schema.org/Offer"
+                        class="product-price-container"
+                      >
+                        {{#if product.isOffer}}
+                        <div class="base-price strike">
+                         ₹ {{product.price}}
+                        </div>
+
+                        <div class="sale-price">
+
+                         ₹ {{product.offerPrice}}
+
+                        </div>
+                        {{else}}
+
+                        <div class="sale-price">
+
+                         ₹ {{product.price}}
+
+                        </div>
+
+
+                        {{/if}}
+                      </div>
+
+                      {{!-- <div class="discount-percentage">
+                        20 % OFF
+                      </div> --}}
+                    </div>
+
+                    <div class="col-sm-6">
+                      {{!-- <div class="product-sku">
+                        <span class="sku-text">SKU :</span>
+                        <span itemprop="sku" class="sku"> jb-e1 </span>
+                      </div> --}}
+
+                   
+
+                    </div>
+                  </div>
+
+                    <div class="cart-action-complete" style="display:none;" id="AddedToCart-{{product._id}}">
+                      <p class="text-success">
+                        Item added to cart.
+                        <a
+                          href="/bookstore/index.php/my-cart"
+                          class="j2store-checkout-link"
+                        >
+                          Checkout
+                        </a>
+                      </p>
+                    </div>
+
+                    <div id="add-to-cart-210" class="j2store-add-to-cart">
+
+
+                      <button type="button" onclick="addToCart('{{product._id}}')" class="btn btn-primary btn-lg">
+                        Add to cart
+                      </button>
+
+                    </div>
+                    <div class="jb-icons-single">
+
+                      <div class="product-compare">
+                        <a
+                          href="javascript:void(0);"
+                          class="j2store-compare-links product-compare-link"
+                          data-compare-action-done="Item added to compare. View"
+                          data-compare-link="/bookstore/index.php/component/j2store/products/compare?Itemid=158"
+                          data-compare-action-timeout="1000"
+                          data-compare-product-id="210"
+                          data-compare-variant-id="210"
+                          data-compare-id="10054"
+                          data-compare-show-messgage="1"
+                          data-compare-show-messgage-text=" "
+                          data-icon-after-add="fa-retweet"
+                          onclick="addToCompare(this,'/bookstore/index.php/e-books/health-and-beauty/women-s-health');"
+                        >
+
+                          <i class="fa fa-list"></i>
+                        </a>
+
+                      </div>
+                      <div class="product-wishlist">
+                        <i
+                          id="icon-spinner-210"
+                          class="fa fa-spinner"
+                          style="display:none;"
+                        ></i>
+                        <a
+                          href="javascript:void(0);"
+                          class="product-wishlist-link"
+                          data-wishlist-link="/bookstore/index.php/component/j2store/products/wishlist?Itemid=158 "
+                          data-wishlist-action-done="Item added"
+                          data-wishlist-wishlist-view="Browse wishlist"
+                          data-wishlist-action-timeout="1000"
+                          data-wishlist-product-id="210"
+                          data-wishlist-variant-id="210"
+                          data-wishlist-id="10056"
+                          data-enable_redirect="0"
+                          data-wishlist_link_type="icon"
+                          onclick="addToWishlist(this,'/bookstore/index.php/e-books/health-and-beauty/women-s-health')"
+                        >
+
+                          <span class="fa fa-heart"></span>
+                        </a>
+                      </div>
+                     
+                    </div>
+
+                    <input type="hidden" name="option" value="com_j2store" />
+                    <input type="hidden" name="view" value="carts" />
+                    <input type="hidden" name="task" value="addItem" />
+                    <input type="hidden" name="ajax" value="0" />
+                    <input
+                      type="hidden"
+                      name="70efe39f1e1c349572c9029be4500ce5"
+                      value="1"
+                    />
+                    <input
+                      type="hidden"
+                      name="return"
+                      value="aHR0cHM6Ly9kZW1vLmpvb21sYWJ1ZmYuY29tL2Jvb2tzdG9yZS9pbmRleC5waHAvZS1ib29rcy9oZWFsdGgtYW5kLWJlYXV0eS93b21lbi1zLWhlYWx0aC9hLXNvY2lhbC1oaXN0b3J5LTQ="
+                    />
+                    <div class="j2store-notifications"></div>
+
+
+                </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <ul class="nav nav-tabs" id="j2store-product-detail-tab">
+                    <li class="active"><a
+                        href="#description"
+                        data-toggle="tab"
+                      >Description</a>
+
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div
+                      itemprop="description"
+                      class="tab-pane fade in active"
+                      id="description">
+
+                      <div class="product-sdesc">
+                        <p>{{product.description}}</p>
+                      </div>
+
+                      <div class="product-ldesc">
+
+                        <table class="table table-hover">
+                          <tbody>
+                            <tr>
+                              <th>Book Author</th>
+                              <td>
+                                <p>{{product.author}}</p>
+                              </td>
+                            </tr>
+                           
+                            <tr class="">
+                              <th>Language</th>
+                              <td>
+                                <p>English</p>
+                              </td>
+                            </tr>
+                            <tr class="alt">
+                              <th>Date Published</th>
+                              <td>
+                                <p>{{product.date}}</p>
+                              </td>
+                            </tr>
+                            <tr class="">
+                              <th>category</th>
+                              <td>
+                                <p>{{product.category_id}}</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+
+                    <div class="tab-pane fade in" id="specs">
+
+                      <table class="table table-striped">
+
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    
+
+    </div>
+  </div>
+
+
+
+</div>
+<script>
+  function viewMain(img){
+    document.getElementById('main_image').src = `/images/products/${img}`;
+  }
+</script>

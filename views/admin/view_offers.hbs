@@ -1,0 +1,155 @@
+<div class="content-page">
+  <div class="content">
+
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box">   
+          <h4 class="page-title">Offers</h4>
+        </div>
+      </div>
+    </div>
+    <!-- end page title -->
+
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-sm-5">
+                <a href="/admin/add-offers" class="btn btn-danger mb-2">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                    Add Offers
+                </a>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12">
+                    <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                      {{!-- <div class="row">
+                        <div class="col-sm-12 col-md-6" style="margin-left: auto;">
+                            <div id="products-datatable_filter" class="dataTables_filter">
+                                <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="products-datatable"></label>
+                            </div>
+                        </div>
+                       </div> --}}
+                    <div class="row">
+                      <div class="col-sm-12">
+                  
+                      {{#if offers}}
+
+                        <table class="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline" id="products-datatable" aria-describedby="products-datatable_info" style="width: 975px;">
+                        <thead class="table-light">
+                        <tr>
+                          
+                          <th class="all sorting sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 211.8px;" aria-label="Product: activate to sort column descending" aria-sort="ascending">
+                              Offer
+                          </th>
+
+                          {{!-- <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 86.8px;" aria-label="Added Date: activate to sort column ascending">
+                                Added Date
+                          </th> --}}
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 41.8px;" aria-label="Price: activate to sort column ascending">
+                                Expiry Date
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                                Offer Rate
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                                Action
+                          </th>
+                         
+                        </tr>
+
+                      </thead>
+                      <tbody>  
+                        {{#each offers}}
+                      <tr class="odd" id="row-{{this._id}}">
+
+                          <td>
+                           {{this.category}}
+                           {{this.product.productName}}
+
+                          </td>
+                       
+                          {{!-- <td>
+                           {{this.date}}
+                          </td> --}}
+                          <td>
+                            {{this.expiry_date}}
+                          </td>
+
+                          <td>
+                            {{this.offer_rate}}
+                          </td>
+                          
+
+                          <td class="table-action" style="">
+                            <a href="/admin/edit-offer/{{this._id}}" class="action-icon">
+                              <ion-icon name="create-outline"></ion-icon>
+                            </a>
+                            <a onclick="deleteOffer('{{this._id}}', '{{this.category}}', '{{this.product.productName}}' , '{{this.isCategory}}' , '{{this.isProduct}}' )" class="action-icon" style="color: red;">
+                              <ion-icon name="trash-outline"></ion-icon>
+                              </a>
+                          </td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                       {{else}}
+
+                        <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" id="author_err" style="display: none;" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Error - </strong> No offers found
+                        </div>
+
+                       {{/if}}
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                {{!-- <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="products-datatable_info" role="status" aria-live="polite">Showing products 1 to 5 of 12</div></div><div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate"><ul class="pagination pagination-rounded"><li class="paginate_button page-item previous disabled" id="products-datatable_previous"><a href="#" aria-controls="products-datatable" data-dt-idx="0" tabindex="0" class="page-link"><i class="mdi mdi-chevron-left"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="products-datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item"><a href="#" aria-controls="products-datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item"><a href="#" aria-controls="products-datatable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="products-datatable_next"><a href="#" aria-controls="products-datatable" data-dt-idx="4" tabindex="0" class="page-link"><i class="mdi mdi-chevron-right"></i></a></li></ul></div></div>
+                </div> --}}
+              </div>
+
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+ 
+
+  </div>
+  <!-- End Content -->
+
+  <!-- Footer Start -->
+  {{!-- <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <script>document.write(new Date().getFullYear())</script>20222022 © Hyper
+          - Coderthemes.com
+        </div>
+        <div class="col-md-6">
+          <div class="text-md-end footer-links d-none d-md-block">
+            <a href="javascript: void(0);">About</a>
+            <a href="javascript: void(0);">Support</a>
+            <a href="javascript: void(0);">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> --}}
+  <!-- end Footer -->
+
+</div>

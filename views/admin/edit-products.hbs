@@ -1,0 +1,86 @@
+<div class="content-page">
+  <div class="content" style="padding-right: 3rem;">
+    <div class="row" style="margin-top: 3rem;">
+      <div class="col-12">
+        <div class="page-title-box">
+          <h4 class="page-title"> Add Products</h4>
+        </div>
+      </div>
+    </div>
+    <form action="/admin/edit-products" method="post" enctype="multipart/form-data">
+      <input type="text" name="_id" value="{{product._id}}" style="display: none;">
+      <div class="mb-3">
+        <label for="simpleinput" class="form-label">Product Name</label>
+        <input type="text" id="simpleinput" name="productName" class="form-control" value="{{product.productName}}" placeholder="{{product.productName}}" required>
+      </div>
+
+      <div class="mb-3">
+          <label for="example-email" class="form-label">Author</label>
+          <input type="text" id="example-email" name="author" class="form-control" value="{{product.author}}" placeholder="{{product.author}}" required>
+      </div>
+
+      <div class="mb-3">
+          <label for="example-textarea" class="form-label">Description</label>
+          <textarea class="form-control" id="example-textarea" name="description" rows="5"  placeholder="{{product.description}}">{{product.description}}</textarea>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="example-select" class="form-label">Category</label>
+            <select class="form-select mb-3" name="category" required>
+            <option selected>{{product.category_id}}</option>
+            {{#each category}}
+            <option name="category" value="{{this.categoryName}}">{{this.categoryName}}</option>
+            {{/each}}
+        </select>
+        </div>
+
+        <div class="mb-3 col-md-4">
+            <label for="example-palaceholder" class="form-label">Stock</label>
+            <input type="number" id="stock" class="form-control" name="stock" value="{{product.stock}}" placeholder="{{product.stock}}">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="example-password" class="form-label">Price</label>
+            <input type="number" id="price" class="form-control" name="price" value="{{product.price}}" placeholder="{{product.price}}">
+        </div>
+      </div>
+
+
+<div class="old" style="display: flex;justify-content: space-around;flex-wrap:wrap">
+  {{#each product.image}}
+  <img src="/images/products/{{this}}" alt="" width="200">
+ {{/each}}
+
+  <input type="text" name="image1" value="{{product.image.[0]}}" style="display: none;">
+  <input type="text" name="image2" value="{{product.image.[1]}}" style="display: none;">
+  <input type="text" name="image3" value="{{product.image.[2]}}" style="display: none;">
+
+</div>
+<div class="mb-3">
+    <p style="color:red ; display : none" id="invalid">Invalid file format</p>
+
+    <img src="" id="imgView1" alt="" style="width:100px">
+    {{!-- <input type="file" id="id_image1" name="image" accept="image/*" onchange="viewImage1(event)"><br> --}}
+    <input type="file" id="id_image1" name="product-image1" accept="image/*" class="form-control upload_file" onchange="viewImage1(event)">
+    <div id="image-box1" style="width:60%" class="image-container"></div>
+    <button class="btn btn-outline-info" id="crop-btn1" style="width: 60%; margin-top: 10px; display: none;"
+      type="button">Crop</button>
+    <img src="" id="imgView2" alt="" style="width:100px">
+    <input type="file" id="id_image2" name="product-image2" accept="image/*" class="form-control upload_file" onchange="viewImage2(event);">
+    {{!-- <input type="file" id="id_image2" name="image" accept="image/*" onchange="viewImage2(event)"> <br> --}}
+    <div id="image-box2" style="width:60%" class="image-container"></div>
+    <button class="btn btn-outline-info" id="crop-btn2" style="width: 60%; margin-top: 10px; display: none;"
+      type="button">Crop</button>
+     <img src="" id="imgView3"  alt="" style="width:100px">
+    <input type="file" id="id_image3" name="product-image3" accept="image/*" class="form-control upload_file" onchange="viewImage3(event);">
+    {{!-- <input type="file" id="id_image3" name="image" accept="image/*" onchange="viewImage3(event)"><br> --}}
+    <div id="image-box3" style="width:60%" class="image-container"></div>
+    <button class="btn btn-outline-info" id="crop-btn3" style="width: 60%; margin-top: 10px; display: none;"
+        type="button">Crop</button>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+</div>

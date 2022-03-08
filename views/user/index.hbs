@@ -1,0 +1,916 @@
+
+        <!-- START REVOLUTION SLIDER 5.0.14 fullwidth mode -->
+
+      <script type="text/javascript">
+          $(document).ready(function() {
+              $("#light-slider").lightSlider();
+              });
+        </script>
+      
+      <!-- //Slideshow -->
+
+      <div class="home" id="bckground">
+        <!-- SPOTLIGHT 1 -->
+
+        <!-- //SPOTLIGHT 1 -->
+
+        <!-- feature-intro -->
+        <div class="wrap jb-sl-30 jb-feature-intro">
+          <div class="container">
+            <div class="t3-module module" id="Mod117">
+              <div class="module-inner">
+                <div class="module-ct">
+                  <div class="custom">
+                    <ul class="row" id="light-slider" style="list-style: none;"> 
+                      {{#each banners}}
+                      <li
+                        class="col-xs-12 col-sm-6 col-md-4 col-lg-4 feature-box"
+                      >
+                        <div class="dis-bottom-left">
+                          <div class="dis-bottom-left-img">
+                            <img src="/images/offers/{{this.images}}" alt="" />
+                            <div class="dis-bottom-left-content">
+                              <div class="dis-bottom-left-text">
+                               
+                                <a href="/store/offer_filter"  class="btn-link">
+                                  Shop now
+                                  <em class="fa fa-long-arrow-right"></em></a>
+                                  <p style="color: white;font-weight:600">  Expire On {{this.expiry_date}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      {{/each}}
+                     
+                      <!--end of feature box-->
+                      {{!-- <li
+                        class="col-xs-12 col-sm-6 col-md-4 col-lg-4 feature-box"
+                      >
+                        <div class="dis-bottom-left">
+                          <div class="dis-bottom-left-img">
+                            <img src="images/home-1-text-book.jpg" alt="" />
+                            <div class="dis-bottom-left-content">
+                              <div class="dis-bottom-left-text">
+                                <h6>Shop category</h6>
+                                <h2>Text books</h2>
+                                <a href="#" class="btn-link"
+                                  >Shop now
+                                  <em class="fa fa-long-arrow-right"></em
+                                ></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <!--end of feature box-->
+                      <li
+                        class="col-xs-12 hidden-sm col-md-4 col-lg-4 feature-box"
+                      >
+                        <div class="dis-bottom-left">
+                          <div class="dis-bottom-left-img">
+                            <img src="images/home-1-offer.jpg" alt="" />
+                            <div class="dis-bottom-left-content">
+                              <div class="dis-bottom-left-text">
+                                <h6>Shop category</h6>
+                                <h2>Offer zone</h2>
+                                <a href="#" class="btn-link"
+                                  >Shop now
+                                  <em class="fa fa-long-arrow-right"></em
+                                ></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li> --}}
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- //feature-intro -->
+          <!-- feature-products -->
+        <div class="wrap jb-sl-40 t3-sl-5">
+          <div class="container">
+            <div class="t3-module module feature-tab" id="Mod123">
+              <div class="module-inner">
+                <div class="module-ct">
+                  <div
+                    id="gk-tabs-123"
+                    class="gkTabsGK5"
+                    data-config="{'activator':'click','animation':'0','animation_interval':'5000','animation_type':'slide_horizontal','active_tab':'1','cookie_save':'0','auto_height':'1','module_height':'200','rtl':'0'}"
+                    data-swipe="0"
+                  >
+                    <div class="gkTabsWrap vertical">
+                      <ol class="gkTabsNav" data-amount="3">
+                        <li
+                          class="gkTab gkTabs-1 active"
+                          data-animation="default"
+                        >
+                          <span> Best seller </span>
+                        </li>
+                      
+                        {{!-- <li class="gkTab gkTabs-3" data-animation="default">
+                          <span> Text books </span>
+                        </li> --}}
+                      </ol>
+
+                      <div class="gkTabsContainer">
+                        <div class="gkTabsItem gk-slide_horizontal gk-active">
+                            <script>
+                              jQuery(document).ready(function () {
+                                jQuery("#jowl-slider-122").owlCarousel({
+                                  items: 5,
+                                  autoPlay: false,
+                                  pagination: false,
+                                  navigation: true,
+                                  stopOnHover: true,
+                                  navigationText: [
+                                    "<i class='icon-chevron-left icon-white'></i>",
+                                    "<i class='icon-chevron-right icon-white'></i>",
+                                  ],
+                                  afterInit: function (elem) {
+                                    var that = this;
+                                    that.owlControls.prependTo(elem);
+                                  },
+                                });
+                              });
+                            </script>
+
+                          <div class="row">
+                            <div class="span12">
+                              <!-- Enables Product Slider Effects -->
+                                  {{#each bestProducts}}
+
+                                  <div
+                                    class="jb-product-slider item col-md-3 col-12 ms-2"
+                                    
+                                  >
+                                    <div class="jb-product-block" style="height: 38rem;box-sizing:content-box;width: 20rem;">
+                                      <div class="product-image">
+                                        <div
+                                          class="j2store_product_image_block"
+                                          style="clear: both"
+                                        >
+                                          <span class="j2store_product_image">
+                                            <a
+                                              href="/view-product/{{this._id}}"
+                                            >
+                                              <img
+                                                class="img-responsive"
+                                                src="/images/products/{{this.image.[0]}}"
+                                                alt="loading.."
+                                              />
+                                            </a>
+                                          </span>
+                                          <div class="overlay-rmore">
+                                            <div class="quickview">
+                                              <a
+                                                style="
+                                                  display: inline;
+                                                  position: relative;"
+                                                class="modal j2store-product-quickview-modal"
+                                                href="/view-product/{{this._id}}"
+                                              >
+                                                <ion-icon name="search-outline"></ion-icon>                                             
+                                              </a>
+                                            </div>
+                                          </div>
+
+                                          <div class="hover-state">
+                                            <div class="hover-content">
+                                              <!-- contains cart related section -->
+                                              <div
+                                                class="j2store-product-list-cart"
+                                              >
+                                                <div
+                                                  
+                                                  name="j2storeProductForm"
+                                                  id="j2store-addtocart-form-module122-210"
+                                                  class="j2store-addtocart-form"
+                                                >
+                                                  <!-- Product Cart View  -->
+                                                  <div
+                                                    id="add-to-cart-122-210"
+                                                    class="j2store-add-to-cart jb-slider-cart"
+                                                  >
+                                                    <!-- Here product options  -->
+
+                                                    <div
+                                                      class="cart-action-complete"
+                                                      id="AddedToCart-{{this._id}}"
+                                                      style="display: none"
+                                                    >
+                                                      <p class="text-success" id="AddedToWishlist-{{this._id}}">
+                                                        Item added to cart
+                                                      </p>
+                                                    </div>
+                                                    <div
+                                                      class="j2store-add-to-cart"
+                                                    >
+                                                     
+                                                      <button
+                                                        type="button"
+                                                        class="btn btn-inverse btn-lg"
+                                                        onclick="addToCart('{{this._id}}');"
+                                                      >
+                                                        Add to cart
+                                                      </button>
+                                                    </div>
+
+                                                    <div class="jb-icons">
+                                                      <div
+                                                        class="product-compare"
+                                                      >
+                                                        <a
+                                                          
+                                                        >
+                                                          <i
+                                                            class="fa fa-list"
+                                                          ></i>
+                                                        </a>
+                                                      </div>
+                                                      <div
+                                                        class="product-wishlist"
+                                                      >
+                                                        <i
+                                                          id="icon-spinner-210"
+                                                          class="fa fa-spinner"
+                                                          style="display: none"
+                                                        ></i>
+                                                        <button
+                                                          {{!-- class="product-wishlist-link" --}}
+                                                          style="background: none;outline:none;border:none"
+                                                          onclick="addWishlist('{{this._id}}');"
+                                                          type="button"
+                                                        >
+                                                          {{!-- <span
+                                                            class="fa fa-heart"
+                                                          ></span> --}}
+
+                                                          <ion-icon name="heart-outline"></ion-icon>
+                                                        
+                                                        </button>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="j2store-notifications"
+                                                    ></div>
+                                                  </div>
+                                                  
+                                                  <div
+                                                    class="j2store-notifications"
+                                                  ></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="j2store_product_content_block"
+                                      >
+                                        <h6 class="j2store_product_title">
+                                          <a
+                                            href=""
+                                            class="j2store_product_title_link" 
+                                            style="font-size: small;"
+
+                                          >
+                                            {{this.productName}}
+                                          </a>
+                                        </h6>
+
+                                        <!-- Price Container  -->
+                                        <div
+                                          class="product-price-container mt-0"
+                                          id="j2store_product_price_122_210"
+                                        >
+                                        {{#if isOffer}}
+                                          <div class="base-price strike">
+                                            <span class="product-element-value"
+                                            style="font-size: small;"
+                                            >
+                                              ₹{{this.price}}
+                                            </span>
+                                          </div>
+
+                                          <div class="sale-price">
+                                            <div class="product-element-value"
+                                            style="font-size: small;"
+                                            >
+                                              ₹{{this.offerPrice}}
+                                            </div>
+                                          </div>
+                                          {{else}}
+                                          {{!-- <div class="base-price strike">
+                                            <span class="product-element-value">
+                                              $50.00
+                                            </span>
+                                          </div> --}}
+
+                                          <div class="sale-price">
+                                            <div class="product-element-value"
+                                            style="font-size: small;"
+                                            >
+                                              ₹{{this.price}}
+                                            </div>
+                                          </div>
+
+                                          {{/if}}
+
+
+                                          <!-- OFFER PERCENTAGE -->
+                                          {{!-- {{#if offer}}
+                                          <div class="discount-percentage">
+                                            <span>
+                                              20 % <br />
+                                              OFF
+                                            </span>
+                                          </div>
+                                          {{/if}} --}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {{/each}}
+                          </div>
+                        </div>
+                        <div class="gkTabsItem gk-slide_horizontal gk-hide">
+                          <script>
+                            jQuery(document).ready(function () {
+                              jQuery("#jowl-slider-124").owlCarousel({
+                                items: 5,
+                                autoPlay: false,
+                                pagination: false,
+                                navigation: true,
+                                stopOnHover: true,
+                                navigationText: [
+                                  "<i class='icon-chevron-left icon-white'></i>",
+                                  "<i class='icon-chevron-right icon-white'></i>",
+                                ],
+                                afterInit: function (elem) {
+                                  var that = this;
+                                  that.owlControls.prependTo(elem);
+                                },
+                              });
+                            });
+                          </script>
+
+                          <div class="row-fluid">
+                            <div class="span12">
+                              <!-- Enables Product Slider Effects -->
+                              <div class="jowl-module-product-slide">
+                                <div id="jowl-slider-124" class="owl-carousel">
+                                  <div
+                                    class="jb-product-slider item j2product product_197j2store_product_block"
+                                  >
+                                    <div class="jb-product-block">
+                                      <div class="product-image">
+                                        <div
+                                          class="j2store_product_image_block"
+                                          style="clear: both"
+                                        >
+                                          <span class="j2store_product_image">
+                                            <a
+                                              href="index.php/e-books/health-and-beauty/children-s-health/necessary-lies.html"
+                                            >
+                                              <img
+                                                class="img-responsive"
+                                                src="images/products/books/book22.png"
+                                                alt=" Necessary Lies"
+                                              />
+                                            </a>
+                                          </span>
+                                          <div class="overlay-rmore">
+                                            <div class="quickview">
+                                              <a
+                                                style="
+                                                  display: inline;
+                                                  position: relative;
+                                                "
+                                                class="modal j2store-product-quickview-modal"
+                                                href="index.php/e-books/health-and-beauty/children-s-health/necessary-liesbd57.html?tmpl=component"
+                                              >
+                                                <i class="icon-line-search"></i>
+                                              </a>
+                                            </div>
+                                          </div>
+
+                                          <div class="hover-state">
+                                            <div class="hover-content">
+                                              <!-- contains cart related section -->
+                                              <div
+                                                class="j2store-product-list-cart"
+                                              >
+                                                <form
+                                                  action="https://demo.joomlabuff.com/bookstore/index.php/component/j2store/"
+                                                  method="post"
+                                                  name="j2storeProductForm"
+                                                  data-product_id="197"
+                                                  data-product_type="downloadable"
+                                                  id="j2store-addtocart-form-module124-197"
+                                                  class="j2store-addtocart-form"
+                                                >
+                                                  <!-- Product Cart View  -->
+                                                  <div
+                                                    id="add-to-cart-124-197"
+                                                    class="j2store-add-to-cart jb-slider-cart"
+                                                  >
+                                                    <!-- Here product options  -->
+
+                                                    <div
+                                                      class="cart-action-complete"
+                                                      style="display: none"
+                                                    >
+                                                      <p class="text-success">
+                                                        Item added to cart.
+                                                        <a
+                                                          href="index.php/my-cart.html"
+                                                          class="j2store-checkout-link"
+                                                        >
+                                                          Checkout
+                                                        </a>
+                                                      </p>
+                                                    </div>
+
+                                                    <div
+                                                      class="j2store-add-to-cart"
+                                                    >
+                                                      <input
+                                                        type="hidden"
+                                                        name="product_qty"
+                                                        value="1"
+                                                      />
+
+                                                      <input
+                                                        type="hidden"
+                                                        name="product_id"
+                                                        value="197"
+                                                      />
+
+                                                      <button
+                                                        type="submit"
+                                                        class="btn btn-inverse btn-lg"
+                                                      >
+                                                        Add to cart
+                                                      </button>
+                                                    </div>
+
+                                                    <div class="jb-icons">
+                                                      <div
+                                                        class="product-compare"
+                                                      >
+                                                        <a
+                                                          href="javascript:void(0);"
+                                                          class="j2store-compare-links product-compare-link"
+                                                          
+                                                        >
+                                                          <i
+                                                            class="fa fa-list"
+                                                          ></i>
+                                                        </a>
+                                                      </div>
+                                                      <div
+                                                        class="product-wishlist"
+                                                      >
+                                                        <i
+                                                          id="icon-spinner-197"
+                                                          class="fa fa-spinner"
+                                                          style="display: none"
+                                                        ></i>
+                                                        <a
+                                                          href="javascript:void(0);"
+                                                          class="product-wishlist-link"
+                                                        >
+                                                          <span
+                                                            class="fa fa-heart"
+                                                          ></span>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+
+                                                    <div
+                                                      class="j2store-notifications"
+                                                    ></div>
+                                                  </div>
+                                                 
+                                                  <div
+                                                    class="j2store-notifications"
+                                                  ></div>
+                                                </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="j2store_product_content_block"
+                                      >
+                                        <h4 class="j2store_product_title">
+                                          <a
+                                            href="index.php/e-books/health-and-beauty/children-s-health/necessary-lies.html"
+                                            class="j2store_product_title_link"
+                                          >
+                                            Necessary Lies
+                                          </a>
+                                        </h4>
+
+                                        <!-- Price Container  -->
+                                        <div
+                                          class="product-price-container"
+                                          id="j2store_product_price_124_197"
+                                        >
+                                          <div class="base-price strike">
+                                            <span class="product-element-value">
+                                              $30.00
+                                            </span>
+                                          </div>
+
+                                          <div class="sale-price">
+                                            <div class="product-element-value">
+                                              $15.00
+                                            </div>
+                                          </div>
+
+                                          <!-- OFFER PERCENTAGE -->
+                                          <div class="discount-percentage">
+                                            <span>
+                                              50 % <br />
+                                              OFF
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="gkTabsItem gk-slide_horizontal gk-hide">
+                          <script>
+                            jQuery(document).ready(function () {
+                              jQuery("#jowl-slider-125").owlCarousel({
+                                items: 5,
+                                autoPlay: false,
+                                pagination: false,
+                                navigation: true,
+                                stopOnHover: true,
+                                navigationText: [
+                                  "<i class='icon-chevron-left icon-white'></i>",
+                                  "<i class='icon-chevron-right icon-white'></i>",
+                                ],
+                                afterInit: function (elem) {
+                                  var that = this;
+                                  that.owlControls.prependTo(elem);
+                                },
+                              });
+                            });
+                          </script>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="gkTabsWrap vertical">
+                      <ol class="gkTabsNav" data-amount="3">
+                        <li
+                          class="gkTab gkTabs-1 active"
+                          data-animation="default"
+                        >
+                          <span> Recently Added </span>
+                        </li>
+                      
+                        {{!-- <li class="gkTab gkTabs-3" data-animation="default">
+                          <span> Text books </span>
+                        </li> --}}
+                      </ol>
+
+                      <div class="gkTabsContainer">
+                        <div class="gkTabsItem gk-slide_horizontal gk-active">
+                            <script>
+                              jQuery(document).ready(function () {
+                                jQuery("#jowl-slider-122").owlCarousel({
+                                  items: 5,
+                                  autoPlay: false,
+                                  pagination: false,
+                                  navigation: true,
+                                  stopOnHover: true,
+                                  navigationText: [
+                                    "<i class='icon-chevron-left icon-white'></i>",
+                                    "<i class='icon-chevron-right icon-white'></i>",
+                                  ],
+                                  afterInit: function (elem) {
+                                    var that = this;
+                                    that.owlControls.prependTo(elem);
+                                  },
+                                });
+                              });
+                            </script>
+
+                          <div class="row">
+                            <div class="span12">
+                              <!-- Enables Product Slider Effects -->
+                                  {{#each newProducts}}
+
+                                  <div
+                                    class="jb-product-slider item col-md-3 col-12 ms-2"
+                                    
+                                  >
+                                    <div class="jb-product-block" style="height: 38rem;box-sizing:content-box;width: 20rem;">
+                                      <div class="product-image">
+                                        <div
+                                          class="j2store_product_image_block"
+                                          style="clear: both"
+                                        >
+                                          <span class="j2store_product_image">
+                                            <a
+                                              href="/view-product/{{this._id}}"
+                                            >
+                                              <img
+                                                class="img-responsive"
+                                                src="/images/products/{{this.image.[0]}}"
+                                                alt="loading.."
+                                              />
+                                            </a>
+                                          </span>
+                                          <div class="overlay-rmore">
+                                            <div class="quickview">
+                                              <a
+                                                style="
+                                                  display: inline;
+                                                  position: relative;"
+                                                class="modal j2store-product-quickview-modal"
+                                                href="/view-product/{{this._id}}"
+                                              >
+                                                <ion-icon name="search-outline"></ion-icon>                                             
+                                              </a>
+                                            </div>
+                                          </div>
+
+                                          <div class="hover-state">
+                                            <div class="hover-content">
+                                              <!-- contains cart related section -->
+                                              <div
+                                                class="j2store-product-list-cart"
+                                              >
+                                                <div
+                                                  
+                                                  name="j2storeProductForm"
+                                                  id="j2store-addtocart-form-module122-210"
+                                                  class="j2store-addtocart-form"
+                                                >
+                                                  <!-- Product Cart View  -->
+                                                  <div
+                                                    id="add-to-cart-122-210"
+                                                    class="j2store-add-to-cart jb-slider-cart"
+                                                  >
+                                                    <!-- Here product options  -->
+
+                                                    <div
+                                                      class="cart-action-complete"
+                                                      id="AddedToCart-{{this._id}}"
+                                                      style="display: none"
+                                                    >
+                                                      <p class="text-success" id="AddedToWishlist-{{this._id}}">
+                                                        Item added to cart
+                                                      </p>
+                                                    </div>
+                                                    <div
+                                                      class="j2store-add-to-cart"
+                                                    >
+                                                     
+                                                      <button
+                                                        type="button"
+                                                        class="btn btn-inverse btn-lg"
+                                                        onclick="addToCart('{{this._id}}');"
+                                                      >
+                                                        Add to cart
+                                                      </button>
+                                                    </div>
+
+                                                    <div class="jb-icons">
+                                                      <div
+                                                        class="product-compare"
+                                                      >
+                                                        <a
+                                                          
+                                                        >
+                                                          <i
+                                                            class="fa fa-list"
+                                                          ></i>
+                                                        </a>
+                                                      </div>
+                                                      <div
+                                                        class="product-wishlist"
+                                                      >
+                                                        <i
+                                                          id="icon-spinner-210"
+                                                          class="fa fa-spinner"
+                                                          style="display: none"
+                                                        ></i>
+                                                        <button
+                                                          {{!-- class="product-wishlist-link" --}}
+                                                          style="background: none;outline:none;border:none"
+                                                          onclick="addWishlist('{{this._id}}');"
+                                                          type="button"
+                                                        >
+                                                          {{!-- <span
+                                                            class="fa fa-heart"
+                                                          ></span> --}}
+
+                                                          <ion-icon name="heart-outline"></ion-icon>
+                                                        
+                                                        </button>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="j2store-notifications"
+                                                    ></div>
+                                                  </div>
+                                                  
+                                                  <div
+                                                    class="j2store-notifications"
+                                                  ></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="j2store_product_content_block"
+                                      >
+                                        <h6 class="j2store_product_title">
+                                          <a
+                                            href=""
+                                            class="j2store_product_title_link" 
+                                            style="font-size: small;"
+
+                                          >
+                                            {{this.productName}}
+                                          </a>
+                                        </h6>
+
+                                        <!-- Price Container  -->
+                                        <div
+                                          class="product-price-container mt-0"
+                                          id="j2store_product_price_122_210"
+                                        >
+                                        {{#if isOffer}}
+                                          <div class="base-price strike">
+                                            <span class="product-element-value"
+                                            style="font-size: small;"
+                                            >
+                                              ₹{{this.price}}
+                                            </span>
+                                          </div>
+
+                                          <div class="sale-price">
+                                            <div class="product-element-value"
+                                            style="font-size: small;"
+                                            >
+                                              ₹{{this.offerPrice}}
+                                            </div>
+                                          </div>
+                                          {{else}}
+                                          {{!-- <div class="base-price strike">
+                                            <span class="product-element-value">
+                                              $50.00
+                                            </span>
+                                          </div> --}}
+
+                                          <div class="sale-price">
+                                            <div class="product-element-value"
+                                            style="font-size: small;"
+                                            >
+                                              ₹{{this.price}}
+                                            </div>
+                                          </div>
+
+                                          {{/if}}
+
+
+                                          <!-- OFFER PERCENTAGE -->
+                                          {{!-- {{#if offer}}
+                                          <div class="discount-percentage">
+                                            <span>
+                                              20 % <br />
+                                              OFF
+                                            </span>
+                                          </div>
+                                          {{/if}} --}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {{/each}}
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //feature-products -->
+
+ 
+
+        <!-- feature-products-2 -->
+        <!-- //feature-products-2 -->
+
+        <!-- jb-parallax -->
+
+        {{#if user}}
+        {{else}}
+
+        <div class="wrap jb-parallax t3-sl-5">
+          <div class="t3-module module jb-bg-img" id="Mod163">
+            <div class="module-inner">
+              <div class="module-ct">
+                <div
+                  class="custom jb-bg-img"
+                  style="background-image: url(images/parallax.jpg)"
+                >
+                  <div class="container">
+                    <div class="col-md-8 col-md-offset-2">
+                      <div class="jb-promo-block-content text-center">
+                        <div class="jb-promo">
+                          <h3>
+                            Join <span class="brand">100,321</span> Happy
+                            readers And Get Access To Our Entire Collection Of
+                            <span class="brand-2">1000</span> ebooks For The
+                            Price Of One
+                          </h3>
+                          <p class="jb-promo-border">
+                            We offer a 45 Day Money Back Guarantee, so joining
+                            is risk-free!
+                          </p>
+                          <div class="clr">&nbsp;</div>
+                          <a
+                            href="index.php/subscription.html"
+                            class="btn btn-white"
+                            >Sign Up Today
+                            <em class="fa fa-long-arrow-right"></em
+                          ></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+        <!-- //jb-parallax -->
+
+      
+
+        <!-- home-blog -->
+        
+        <!-- //home-blog -->
+
+        <div id="t3-mainbody" class="container t3-mainbody">
+          <div class="row">
+            <!-- MAIN CONTENT -->
+            <div id="t3-content" class="t3-content col-xs-12">
+              <div
+                class="blog-featured jb-home"
+                itemscope
+                itemtype="https://schema.org/Blog"
+              ></div>
+            </div>
+            <!-- //MAIN CONTENT -->
+          </div>
+        </div>
+
+        <!-- FOOTER PROMO -->
+
+        <!-- //FOOTER PROMO -->
+      </div>
+
+      <!-- BACK TOP TOP BUTTON -->
+      <div
+        id="back-to-top"
+        data-spy="affix"
+        data-offset-top="300"
+        class="back-to-top hidden-xs hidden-sm affix-top"
+      >
+        <button class="btn btn-primary" title="Back to Top">
+          <ion-icon name="chevron-up-outline"></ion-icon>
+        </button>
+      </div>
+      <!-- BACK TO TOP BUTTON -->
+

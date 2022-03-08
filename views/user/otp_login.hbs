@@ -1,0 +1,55 @@
+
+
+<div class="container forgot" style="display: flex;justify-content:center;align-content:center">
+  <div style="box-sizing:content-box; margin-top:5rem" class="forgot-box">
+    <div class="heading">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <h3>OTP LOGIN</h3>
+      <p style="font-size: 1.5rem;">Enter your Mobile Number</p>
+      {{#if error}}
+      <p style="color: red;font-size: 1.3rem;">{{error}}</p>
+      {{/if}}
+    </div>
+    <div class="alert alert-danger" role="alert" id="error_msg" style="display:none">
+        Invalid phone number, phone number must contain 10 numbers
+    </div>
+    <div >
+      <form action="/login_otp/send_otp" method="post" onsubmit="return otpLoginValidation()">
+      <div class="input-form">
+        <ion-icon name="call-outline"></ion-icon>
+        <input type="phone" name="phone" class="input-otp" id="phone" style="font-size: 1.5rem;"/>
+      </div>
+      <div class="submit popup-flex" style="margin-left: 28px;">
+        <a href="/login" class="btn btn-primary" style="padding : 7px ; border: none ; font-size: 1rem">Back</a>
+        <button class="btn btn-primary" type="submit" id="popup-btn" style="padding : 5px ; border: none ; font-size: 1rem" >Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+  {{! <div class="popup-flex">
+    <button id="popup-btn">Click Me</button>
+  </div> }}
+
+</div>
+
+<script>
+
+  function otpLoginValidation(){
+
+    let phone = document.getElementById('phone').value;
+
+    if(phone.length == 10 ){
+
+          return true;
+
+    }else{
+
+      document.getElementById('error_msg').style.display = "block";
+      return false;
+
+    }
+
+  }
+
+
+</script>

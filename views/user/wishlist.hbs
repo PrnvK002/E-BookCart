@@ -1,0 +1,63 @@
+<div class="home">
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+      {{!-- message start --}}
+
+       <div id="item-removed-msg" style="display: none;">
+          <div id="system-message">
+            <div id="msg_block" class="alert alert-success">
+              <a class="close" data-dismiss="alert">×</a>
+
+              <h4 class="alert-heading"></h4>
+              <div>
+                <p id="wishMessage"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {{!-- message end --}}
+
+
+      <div class="cards" style="display: flex;flex:wrap">
+        {{#if data}}
+        {{#each data.products}}
+        <div class="card" id="{{this.product_id._id}}" style="width: 18rem;margin:1rem;padding:10px">
+          <img src="/images/products/{{this.product_id.image.[0]}}" class="card-img-top" alt="..." />
+          <div style="display: flex;justify-content:center;align-items:center">
+          <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">{{this.product_id.productName}}</h5>
+            <p class="card-text">{{this.product_id.price}}</p>
+            <button class="btn btn-primary" style="margin: 3px; width : fit-content " onclick="addCartlist('{{this.product_id._id}}');" >Add to Cart</button>
+            <button class="btn btn-danger" style="margin: 3px; width : 100% " onclick="removeFromWish('{{this.product_id._id}}')">Remove</button>
+          </div>
+          </div>
+        </div>
+        {{/each}}
+        {{else}}
+
+      {{!-- message start --}}
+
+       <div id="item-removed-msg" style="width: 100%;">
+          <div id="system-message">
+            <div id="msg_block" class="alert alert-success">
+              <a class="close" data-dismiss="alert">×</a>
+
+              <h4 class="alert-heading"></h4>
+              <div>
+                <p id="wishMessage">Nothing in the wishlist to show</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {{!-- message end --}}
+
+
+        {{/if}}
+      </div>
+
+    </div>
+  </div>
+</div>

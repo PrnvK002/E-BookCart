@@ -1,0 +1,24 @@
+<div class="container forgot">
+    <div class="forgot-box col-12 col-md-6">
+        <div class="heading">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <h3>OTP Cofirmation</h3>
+        <p style="font-size: 1.5rem;">Enter the otp that we sent to your mobile</p>
+        </div>
+        {{#if error}}
+        <p style="color: red;font-size: 1.3rem;">{{error}}</p>
+        {{/if}}
+        <form action="/change-otp" method="post">
+            <div class="input-form">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="number" name="otp" class="input-otp" id="otp">
+                <input type="text" name="phone" value="{{phone}}" class="input-otp" id="otp" style="display: none;">
+                <input type="text" name="time" value="{{time}}" class="input-otp" id="otp" style="display: none;">
+            </div>
+            <div class="submit">
+                <a href="/change-phone" class="btn btn-primary">Back</a>
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        </div>
+</div>

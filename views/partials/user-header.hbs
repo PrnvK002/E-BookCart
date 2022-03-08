@@ -1,0 +1,306 @@
+    <!-- //TOPBAR -->
+
+      <!-- HEADER -->
+      <header id="t3-header" class="t3-header">
+        <div class="container">
+          <div class="row">
+            <!-- LOGO -->
+            <div class="col-xs-12 col-sm-6 col-lg-8 col-md-6 logo">
+              <div class="logo-image">
+                <a
+                  href="/"
+                  title="bookstore"
+                >
+                  <img
+                    class="logo-img"
+                    src="/images/logo/logo_green.png"
+                    alt="bookstore"
+                  />
+                  <span>bookstore</span>
+                </a>
+                <small class="site-slogan">bookstore</small>
+              </div>
+            </div>
+            <!-- //LOGO -->
+
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2"></div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+              <!-- jb-cart-block -->
+              {{#if user}}
+              <div class="jb-cart-block">
+                <div class="moduletable jb-cart pull-right">
+                  <div class="j2store_cart_module_94">
+                    <div class="j2store-minicart-button">
+                      <span class="cart-item-info jb-cart-section">
+                        <a class="link" href="/cart">
+                          <span style="display: inline">Cart</span>
+                          <i class="icon-line2-bag"></i>
+                          <span class="cart-item-count" id="cart-total-count">{{total_count}}</span>
+                        </a>
+      
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="t3-module module jb-currency pull-left" id="Mod218">
+                  <div class="module-inner">
+                    <div class="module-ct">
+                      <script type="text/javascript">
+                        /* <!--
+if(typeof(j2store) == 'undefined') {
+	var j2store = {};
+}
+if(typeof(j2store.jQuery) == 'undefined') {
+	j2store.jQuery = jQuery.noConflict();
+}
+
+//--> */
+                      </script>
+
+                      <div
+                        id="j2store-currenty-mod-218"
+                        class="j2store jb-currency pull-left"
+                      >
+                        <!-- <form
+                          action="https://demo.joomlabuff.com/bookstore/index.php"
+                          method="post"
+                          id="j2store-currenty-mod-form-218"
+                          enctype="multipart/form-data"
+                        > -->
+                          <div id="j2store_currency" class="dropdown">
+                            <a href="/wishlist">
+                              <span style="display: inline">Wishlist</span>
+                              <ion-icon name="heart-outline"></ion-icon>
+							  <span class="cart-item-count" id="wishlist_count">{{wishlist_count}}</span>
+							</a>                            
+                          </div>
+                        <!-- </form> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{/if}}
+              <!-- //jb-cart-block -->
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- //HEADER -->
+
+      <!-- MAIN NAVIGATION -->
+      <nav
+        id="t3-mainnav"
+        class="wrap navbar navbar-default t3-mainnav"
+        data-spy="affix"
+        data-offset-top="110"
+      >
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <div class="hidden-lg hidden-md">
+              <button
+                type="button"
+                class="navbar-toggle hidden-xs"
+                data-toggle="collapse"
+                data-target=".t3-navbar-collapse"
+              >
+                <i class="fa fa-bars"></i>
+              </button>
+
+              <button
+                class="btn btn-primary off-canvas-toggle"
+                type="button"
+                data-pos="left"
+                data-nav="#t3-off-canvas"
+                data-effect="off-canvas-effect-4"
+              >
+                <i class="fa fa-bars"></i>
+              </button>
+
+              <!-- OFF-CANVAS SIDEBAR -->
+              <div id="t3-off-canvas" class="t3-off-canvas">
+                <div class="t3-off-canvas-header">
+                  <h2 class="t3-off-canvas-header-title">Sidebar</h2>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </button>
+                </div>
+
+                <div class="t3-off-canvas-body">
+                  <div class="t3-module module" id="Mod104">
+                    <div class="module-inner">
+                      <div class="module-ct">
+                        <ul class="nav nav-pills nav-stacked menu">
+                          <li
+                            class="item-101 default current active deeper dropdown parent"
+                          >
+                            <a
+                              href="/"
+                              >Home<em class="caret"></em
+                            ></a>
+                            
+                          </li>
+                          <li class="item-104 deeper dropdown parent">
+                            <a
+                              href="/store"
+                              class="dropdown-toggle"
+                              data-toggle="dropdown"
+                              >Store <em class="caret"></em></a>
+                          </li>
+                           
+						             <li
+                            class="item-101 default current active deeper dropdown parent">
+                            <a
+                              href="/contact"
+                              >Contact Us
+                            </a>
+                            
+                          </li>
+                          
+                        
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //OFF-CANVAS SIDEBAR -->
+            </div>
+
+            <!-- HEAD SEARCH -->
+            <div class="head-search" style="display: flex; align-items: center;" >
+              {{!-- <form class="form-search" action="/userSearch" method="post"> --}}
+                <div class="search" style="display: flex;">
+                  <label for="mod-search-searchword">Search books</label>
+                  <i class="fa fa-search"></i>
+                  <input name="search" id="searchHead" maxlength="200" class="form-control" type="text" size="20" placeholder="search by product Name"/>
+                  {{!-- <button type="submit" class="btn btn-success">Search</button> --}}
+                  <div class="nav-child dropdown-menu mega-dropdown-menu" id="search_result" style="width : fit-content;height : fit-content;">
+			            	<div class="mega-dropdown-inner">
+			              	<div class="row" id="box" style="text-align:center">
+                          
+                      </div>
+                    </div>
+                  </div>  
+                </div>
+
+			        {{!-- </form> --}}
+
+
+			<!-- profile setting -->
+
+			<div class="profile" style="margin-left:3rem;">
+				<a itemprop="url" class=" dropdown-toggle" href="" data-target="#" data-toggle="dropdown">
+					<ion-icon name="person-outline"></ion-icon>
+					<em class="caret"></em>
+					<span class="mega-caption mega-caption-empty">&nbsp;</span>
+				</a>
+			<div class="nav-child dropdown-menu mega-dropdown-menu" style="">
+				<div class="mega-dropdown-inner">
+				<div class="row">
+					<div class="col-xs-12 mega-col-nav" data-width="12">
+						<div class="mega-inner">
+							<ul class="mega-nav level1" style="list-style: none;text-align: center;padding-left: 0;">
+								<li itemprop="name" data-id="287" data-level="2" class="" style="background-color: rgb(110, 238, 161);">
+									<a itemprop="url" class="" href="" data-target="#">
+                    {{#if user.image}}
+										<img src="{{user.image}}" alt=".." width="100" style="border-radius: 50%;">
+                    {{else}}
+										<img src="/images/logo/profile.jpg" alt=".." width="100" style="border-radius: 50%;">
+                    {{/if}}
+									</a>
+								</li>
+                {{#if user.email}}
+								<li itemprop="name" data-id="283" data-level="2" style="padding: 10px;">
+									<p itemprop="url" class='' data-target="#">{{user.email}}</p>
+								</li>
+								<li itemprop="name" data-id="283" data-level="2">
+									<a itemprop="url" class="" href="/profile" data-target="#">Profile</a>
+								</li>
+								<li itemprop="name" data-id="290" data-level="2">
+									<a itemprop="url" class="" href="/order_history" data-target="#">Orders</a>
+								</li>
+                {{/if}}
+								<li itemprop="name" data-id="294" data-level="2">
+                  {{#if user}}
+									<a itemprop="url" class="" href="/logout" data-target="#">Logout</a>					
+									{{else}}
+                  <a itemprop="url" class="" href="/login" data-target="#">Login</a>
+                  {{/if}}
+                </li>
+                <li itemprop="name">
+                  {{#if user}}
+									{{else}}
+                  <a itemprop="url" class="" href="/signup" data-target="#">Signup</a>
+                  {{/if}}
+                </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		  </div>
+			 
+            </div>
+			
+            <!-- //HEAD SEARCH -->
+          </div>
+
+          <div class="t3-navbar-collapse navbar-collapse collapse"></div>
+
+          <div class="hidden-sm hidden-xs">
+            <div class="t3-navbar navbar-collapse collapse">
+              <div
+                class="t3-megamenu animate elastic"
+                data-duration="500"
+                data-responsive="true"
+              >
+                <ul                  
+                  class="nav navbar-nav level0"
+                >
+                  <li
+                    itemprop="name"
+                    class="current active dropdown mega"
+
+                  >
+                    <a itemprop="url" href="/">Home</a>
+                  </li>
+                  <li
+                    itemprop="name"
+                    class="dropdown mega mega-align-left"
+                  >
+                    <a
+                      itemprop="url"
+                      class="dropdown-toggle"
+                      href="/store">
+                      Store
+                      <span class="mega-caption mega-caption-empty">&nbsp;</span>
+                    </a>
+                  </li>
+			
+				          <li
+                    itemprop="name"
+                    class="current  dropdown mega"
+                    data-id="101"
+                    data-level="1"
+                  >
+                    <a
+                      itemprop="url"
+                      href="/contact"
+                      >Contact Us </a>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>

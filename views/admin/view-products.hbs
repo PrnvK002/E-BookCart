@@ -1,0 +1,198 @@
+<div class="content-page">
+  <div class="content">
+
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box">
+          
+          <h4 class="page-title">Products</h4>
+        </div>
+      </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-sm-5">
+                <a href="/admin/add-products" class="btn btn-success mb-2">
+                <ion-icon name="add-circle-outline"></ion-icon>
+                      Add Products
+                </a>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12">
+                    <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                      <div class="row">
+                       
+                                 <div class="col-sm-12 col-md-6" style="margin-left: auto;">
+                                   <div id="products-datatable_filter" class="dataTables_filter">
+                                     <form action="/admin/searchProduct" method="post">
+                                     <label>Search:</label>
+                                     <input type="search" class="form-control form-control-sm" placeholder="Search By Product Name" aria-controls="products-datatable" name="searchProduct">
+                                      <button class="btn btn-success" type="submit">Search</button>
+                                     </form>
+                                    </div>
+                                  </div>
+                                  </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <table class="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline" id="products-datatable" aria-describedby="products-datatable_info" style="width: 975px;">
+
+
+
+                      <thead class="table-light">
+                        <tr>
+                        
+                          <th class="all sorting sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 211.8px;" aria-label="Product: activate to sort column descending" aria-sort="ascending">
+                              Product
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 90.8px;" aria-label="Category: activate to sort column ascending">
+                                Category
+                          </th>
+                          {{!-- <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 86.8px;" aria-label="Added Date: activate to sort column ascending">
+                                Added Date
+                          </th> --}}
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 41.8px;" aria-label="Price: activate to sort column ascending">
+                            Price
+                            {{#if o}}
+                            <button style="border:none;outline:none;background:none" data-id="{{o}}" id="filterPrice" onclick="filterProducts('price')"><ion-icon name="swap-vertical-outline"></ion-icon></button>
+                            {{else}}
+                            <button style="border:none;outline:none;background:none" data-id="Ascending" id="filterPrice" onclick="filterProducts('price')"><ion-icon name="swap-vertical-outline"></ion-icon></button>
+                            {{/if}}
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 63.8px;" aria-label="Quantity: activate to sort column ascending">
+                            Quantity
+                            {{#if o}}
+                            <button style="border:none;outline:none;background:none" data-id="{{o}}" id="filterQuantity" onclick="filterProducts('quantity')"><ion-icon name="swap-vertical-outline"></ion-icon></button>
+                            {{else}}
+                            <button style="border:none;outline:none;background:none" data-id="Ascending" id="filterQuantity" onclick="filterProducts('quantity')"><ion-icon name="swap-vertical-outline"></ion-icon></button>
+                            {{/if}}
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 48.8px;" aria-label="Status: activate to sort column ascending">
+                                Status
+                          </th>
+                          <th style="width: 71.6px;" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action">
+                                Action
+                          </th>
+                        </tr>
+
+                      </thead>
+                      <tbody>  
+                        {{#if products}}
+                        {{#each products}}
+                      <tr class="odd" id="row-{{this._id}}">
+
+                          
+                          <td class="sorting_1">
+                            <img src="/images/products/{{this.image.[0]}}" alt="contact-img" title="contact-img" class="rounded me-3" height="48">
+                            <p class="m-0 d-inline-block align-middle font-16">
+                              <a href="" class="text-body">{{this.productName}}</a>
+                              <br>
+                              <span class="text-warning mdi mdi-star"></span>
+                              <span class="text-warning mdi mdi-star"></span>
+                              <span class="text-warning mdi mdi-star"></span>
+                              <span class="text-warning mdi mdi-star"></span>
+                              <span class="text-warning mdi mdi-star"></span>
+                            </p>
+                          </td>
+                          <td>
+                           {{this.category_id}}
+                          </td>
+                          {{!-- <td>
+                           {{this.date}}
+                          </td> --}}
+                          <td>
+                            {{this.price}}
+                          </td>
+
+                          <td>
+                            {{this.stock}}
+                          </td>
+                          <td style="">
+                            {{#if deleted_status}}
+                            <span class="badge bg-danger">Deactive</span>
+                            {{else}}
+                            <span class="badge bg-success">Active</span>
+                            {{/if}}
+                          </td>
+
+                          <td class="table-action" style="">
+                            <a href="/admin/edit-product/{{this._id}}" class="action-icon">
+                              <ion-icon name="create-outline"></ion-icon>
+                            </a>
+                            <a onclick="deleteProduct('{{this._id}}','{{this.productName}}')" class="action-icon" style="color: red;">
+                              <ion-icon name="trash-outline"></ion-icon>
+                              </a>
+                          </td>
+                        </tr>
+                        {{/each}}
+                        {{else}}
+
+                          <p style="color: red;"> Products Not found </p>
+
+                        {{/if}}
+                        </tbody>
+                    </table></div></div></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="products-datatable_info" role="status" aria-live="polite">Showing products 1 to 5 of 12</div></div><div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+                    <ul class="pagination pagination-rounded">
+                      <li class="paginate_button page-item previous disabled" id="products-datatable_previous">
+                        <a href="#" aria-controls="products-datatable" data-dt-idx="0" tabindex="0" class="page-link">
+                          <i class="mdi mdi-chevron-left"></i>
+                        </a>
+                      </li>
+                      {{#each pagination}}
+                      <li class="paginate_button page-item">
+                        <a href="/admin/products/{{this}}" aria-controls="products-datatable" data-dt-idx="1" tabindex="0" class="page-link">{{this}}</a>
+                      </li>
+                      {{/each}}
+                    </ul>
+                  </div>
+                  </div>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+
+  </div>
+  <!-- End Content -->
+
+  <!-- Footer Start -->
+  {{!-- <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <script>document.write(new Date().getFullYear())</script>20222022 © Hyper
+          - Coderthemes.com
+        </div>
+        <div class="col-md-6">
+          <div class="text-md-end footer-links d-none d-md-block">
+            <a href="javascript: void(0);">About</a>
+            <a href="javascript: void(0);">Support</a>
+            <a href="javascript: void(0);">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> --}}
+  <!-- end Footer -->
+
+</div>

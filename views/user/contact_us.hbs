@@ -1,0 +1,332 @@
+<div class="home">
+
+  <div id="t3-mainbody" class="container t3-mainbody">
+    <div class="row">
+
+      <!-- MAIN CONTENT -->
+      <div id="t3-content" class="t3-content col-xs-12">
+        <div id="system-message-container">
+        </div>
+
+        <div class="contact" itemscope="" itemtype="http://schema.org/Person">
+          <!-- Page heading -->
+          <!-- End page heading -->
+
+          <!-- Show Contact name -->
+          <!-- End Show Contact name -->
+
+          <!-- JA Override Contact From for case "plain" -->
+          <div class="row plain-style">
+
+            <!-- Show form contact -->
+            <div class="col-sm-6 contact-left">
+              <h3>Contact Form</h3>
+              <div class="contact-form">
+                <form
+                  id="contact-form"
+                  action="/bookstore/index.php/pages/contact-us"
+                  method="post"
+                  class="form-validate form-horizontal"
+                >
+                  <fieldset>
+                    <legend>Send an Email. All fields with an asterisk (*) are
+                      required.</legend>
+                    <div class="form-group">
+                      <div class="col-md-6 contact-name">
+                        <label
+                          id="jform_contact_name-lbl"
+                          for="jform_contact_name"
+                          class="hasPopover required control-label"
+                          title=""
+                          data-content="Your name."
+                          data-original-title="Name"
+                        >
+                          Name<span class="star">&nbsp;*</span></label>
+                        <input
+                          type="text"
+                          name="jform[contact_name]"
+                          id="jform_contact_name"
+                          value=""
+                          class="required form-control"
+                          size="30"
+                          required="required"
+                          aria-required="true"
+                        />
+                      </div>
+                      <div class="col-md-6 contact-email">
+                        <label
+                          id="jform_contact_email-lbl"
+                          for="jform_contact_email"
+                          class="hasPopover required control-label"
+                          title=""
+                          data-content="Email Address for contact."
+                          data-original-title="Email"
+                        >
+                          Email<span class="star">&nbsp;*</span></label>
+                        <input
+                          type="email"
+                          name="jform[contact_email]"
+                          class="validate-email required form-control"
+                          id="jform_contact_email"
+                          value=""
+                          size="30"
+                          autocomplete="email"
+                          required="required"
+                          aria-required="true"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label
+                          id="jform_contact_emailmsg-lbl"
+                          for="jform_contact_emailmsg"
+                          class="hasPopover required control-label"
+                          title=""
+                          data-content="Enter the subject of your message here."
+                          data-original-title="Subject"
+                        >
+                          Subject<span class="star">&nbsp;*</span></label>
+                        <input
+                          type="text"
+                          name="jform[contact_subject]"
+                          id="jform_contact_emailmsg"
+                          value=""
+                          class="required form-control"
+                          size="60"
+                          required="required"
+                          aria-required="true"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group contact-mes">
+                      <div class="col-sm-12">
+                        <label
+                          id="jform_contact_message-lbl"
+                          for="jform_contact_message"
+                          class="hasPopover required control-label"
+                          title=""
+                          data-content="Enter your message here."
+                          data-original-title="Message"
+                        >
+                          Message<span class="star">&nbsp;*</span></label>
+                        <textarea
+                          name="jform[contact_message]"
+                          id="jform_contact_message"
+                          cols="50"
+                          rows="10"
+                          class="required form-control"
+                          required="required"
+                          aria-required="true"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-6">
+                        <div class="checkbox">
+                          <input
+                            type="checkbox"
+                            name="jform[contact_email_copy]"
+                            id="jform_contact_email_copy"
+                            value="1"
+                          />
+                          <label
+                            id="jform_contact_email_copy-lbl"
+                            for="jform_contact_email_copy"
+                            class="hasPopover"
+                            title=""
+                            data-content="Sends a copy of the message to the address you have supplied."
+                            data-original-title="Send a copy to yourself"
+                          >
+                            Send a copy to yourself</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 control-btn">
+                        <button
+                          class="btn btn-primary validate"
+                          type="submit"
+                        >Send Email</button>
+                      </div>
+
+                      <input type="hidden" name="option" value="com_contact" />
+                      <input type="hidden" name="task" value="contact.submit" />
+                      <input type="hidden" name="return" value="" />
+                      <input type="hidden" name="id" value="1:bookstore" />
+                      <input
+                        type="hidden"
+                        name="a8671c1264f012e0b8947f5fcc7dc480"
+                        value="1"
+                      />
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+            <!-- End Show form contact -->
+
+            <!-- Show Other information -->
+            <div class="col-sm-6 contact-information">
+              <div class="inner">
+
+                <div class="box-contact">
+                  <!-- Show Contact name -->
+                  <div class="page-header">
+                    <h2>
+                      Bookstore
+                    </h2>
+                  </div>
+                  <!-- End Show Contact name -->
+
+                  <!-- Contact other information -->
+                  <div class="contact-miscinfo">
+                    <dl class="dl-horizontal">
+                      <dt>
+                        <span class="jicons-icons">
+                          <img
+                            src="/bookstore/media/contacts/images/con_info.png"
+                            alt="Miscellaneous Information: "
+                          />
+                        </span>
+                      </dt>
+                      <dd>
+                        <span class="contact-misc">
+                          <p>All the Lorem Ipsum generators you need be sure
+                            there anything embarrassing hidden in the middle of
+                            text on the Internet tend repeat predefined chunks
+                            as and necessary making this the first true
+                            generator on the Internet.</p>
+                        </span>
+                      </dd>
+                    </dl>
+                  </div>
+                  <!-- End other information -->
+                </div>
+
+                <!-- Contact images -->
+                <!-- End Contact images -->
+
+                <div class="row">
+                  <div class="box-contact col-sm-7 col-md-6">
+                    <!-- Contact -->
+                    <h3>Contact</h3>
+
+                    <dl
+                      class="contact-address dl-horizontal"
+                      itemprop="address"
+                      itemscope=""
+                      itemtype="http://schema.org/PostalAddress"
+                    >
+                      <dt>
+                        <span class="jicons-icons">
+                          <img
+                            src="/bookstore/media/contacts/images/con_address.png"
+                            alt="Address: "
+                          />
+                        </span>
+                      </dt>
+
+                      <dd>
+                        <span class="contact-street" itemprop="streetAddress">
+                          <i class="fa fa-map-marker"> </i>Brooklyn, my street
+                          vijay<br />
+                        </span>
+                      </dd>
+
+                      <dd>
+                        <span class="contact-postcode" itemprop="postalCode">
+                          <i class="fa fa-magic"></i>NY 10036<br />
+                        </span>
+                      </dd>
+                      <dd>
+                        <span class="contact-country" itemprop="addressCountry">
+                          <i class="fa fa-building-o"></i>united states<br />
+                        </span>
+                      </dd>
+
+                      <dt>
+                        <span class="jicons-icons">
+                          <img
+                            src="/bookstore/media/contacts/images/con_mobile.png"
+                            alt="Mobile: "
+                          />
+                        </span>
+                      </dt>
+                      <dd>
+                        <span class="contact-mobile" itemprop="telephone">
+                          <i class="fa fa-phone-square"></i>+04321 012345
+                        </span>
+                      </dd>
+                      <dt>
+                        <span class="jicons-icons">
+                        </span>
+                      </dt>
+                      <dd>
+                        <span class="contact-webpage">
+                          <i class="fa fa-globe"></i><a
+                            href="http://www.bookstore.com"
+                            target="_blank"
+                            itemprop="url"
+                          >
+                            http://www.bookstore.com</a>
+                        </span>
+                      </dd>
+                    </dl>
+
+                    <!-- End contact-->
+                  </div>
+
+                  <div class="box-contact col-sm-5 col-md-6">
+                    <!-- Contact links -->
+                    <h3>Links</h3>
+                    <div class="contact-links">
+                      <ul class="nav nav-stacked">
+                        <li>
+                          <a href="http://http//" class="facebook">
+                            <span class="jb-social-title">Facebook</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://http//" class="twitter">
+                            <span class="jb-social-title">twitter</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://http//" class="google-plus">
+                            <span class="jb-social-title">google-plus</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://http//" class="pinterest">
+                            <span class="jb-social-title">pinterest</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- End contact Links -->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- End Show -->
+          </div>
+          <!-- End Override -->
+
+        </div>
+
+      </div>
+      <!-- //MAIN CONTENT -->
+
+    </div>
+  </div>
+
+
+
+</div>
