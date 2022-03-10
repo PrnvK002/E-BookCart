@@ -776,13 +776,14 @@ function totalIncome(){
 
         let total = await Orders.aggregate([ { $group : { _id : null , totalAmount : { $sum : "$total_prize"  } } } ])
 
-        if(!total){
+        if(total.length == 0){
 
             console.log(total);
             console.log("Error occured while finding total income");
             reject("Error occured while finding total income");
 
-        }else{
+        }
+        else{
 
             console.log("--------------- successfully found out total prize ---------------");
             console.log(total);
@@ -795,11 +796,19 @@ function totalIncome(){
 
 function salesReport( from , to ){
 
+    // console.log(from);
+    // console.log(to);
+
+    let From = new Date(from);
+    let To = new Date(to);
+    console.log(From);
+    console.log(To);
+
     return new Promise(async (resolve,reject) => {
 
         let report = await Orders.aggregate([
 
-                { $match : { $and : [ { ordered_date : { $gte : new Date(from) } } , { ordered_date : { $lte : new Date(to) } } ] } } , 
+                { $match : { $and : [ { ordered_date : { $gte : From } } , { ordered_date : { $lte : To } } ] } } , 
                 { $unwind : "$products" } , 
                 { $lookup : { from : "products" , localField : "products.product_id" , foreignField : "_id" , as: "product_info" } } ,
                 { $unwind : "$product_info" } ,

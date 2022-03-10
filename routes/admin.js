@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 const { loginSchema, resetPasswordSchema } = require("../helpers/validator");
-const { loginCheck, updatePassword, findAdmin } = require("../helpers/admin_helper");
+const { loginCheck, updatePassword, findAdmin , insertAdmin } = require("../helpers/admin_helper");
 const { findUsers, updateUser, findCategory, deleteCategory, addCategory , findTotalUser } = require("../helpers/user_helper");
 const { findProducts, updateProduct, insertProduct,  deleteProduct, findOneProduct, activateProduct , updateProductOffer , updateRemoveOffer , productSearch , findAdminProducts , findProductsCount } = require("../helpers/product_helper");
 const { find, remove } = require("../models/admin");
@@ -19,11 +19,14 @@ const { findOffers , addOffer , removeOffer , updateOffer , addCoupen , removeCo
 const otpGenerator = require("otp-generator");
 const { upload_product , upload_banner } = require("../middleware/upload_file");
 const { response } = require("express");
+const cloudinary = require('../middleware/cloudinary');
 
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
+
   let admin = req.session.admin;
+
   if (admin) {
     findAdmin(admin.email).then((admin) => {
       Promise.all([ recentOrders() , totalOrderCount() , totalIncome() , findTotalUser()])
@@ -433,20 +436,21 @@ router.get("/add-products", function (req, res, next) {
 });
 
 router.post(
-    "/add-products", upload_product.fields([{name : 'product_image1'},{name : 'product_image2'},{name : 'product_image3'}]) , (req, res, next) => {
+    "/add-products", upload_product.fields([{name : 'product_image1'},{name : 'product_image2'},{name : 'product_image3'}]) ,async (req, res, next) => {
    
-      console.log(req.body);
-      // console.log(req.files);
-      console.log(req.files.product_image1[0]);
-      console.log(req.files.product_image2[0]);
-      console.log(req.files.product_image3[0]);
+    try{
 
-      let image1 = req.files.product_image1[0].filename;
-      let image2 = req.files.product_image2[0].filename;
-      let image3 = req.files.product_image3[0].filename;
+      let image1 = req.files.product_image1[0].path;
+      let image2 = req.files.product_image2[0].path;
+      let image3 = req.files.product_image3[0].path;
+
+      let result1 = await cloudinary.uploader.upload(image1);
+      let result2 = await cloudinary.uploader.upload(image2);
+      let result3 = await cloudinary.uploader.upload(image3);
+
 
     let products = req.body;
-    let images = [image1 , image2 , image3];
+    let images = [result1.url , result2.url , result3.url ];
     // let images = req.file.filename;
     console.log("images");
     console.log(images); 
@@ -459,6 +463,15 @@ router.post(
         console.log(error);
         // throw error;
       });
+
+    }
+    catch(err){
+
+      console.log(err);
+      res.redirect('/admin/products')
+
+    }
+      
   }
 );
 
@@ -488,7 +501,7 @@ router.get("/edit-product/:id", function (req, res, next) {
     });
 });
 
-router.post("/edit-products",upload_product.fields([{name : 'product_image1'},{name : 'product_image2'},{name : 'product_image3'}]) , function (req, res, next) {
+router.post("/edit-products",upload_product.fields([{name : 'product_image1'},{name : 'product_image2'},{name : 'product_image3'}]) ,async function (req, res, next) {
   let products = req.body;
     // let images = req.file.filename;
 
@@ -497,10 +510,16 @@ router.post("/edit-products",upload_product.fields([{name : 'product_image1'},{n
   let images = [];
   if(req.files.length > 0){
     
-    let  image1 = req.files.product_image1[0].filename || req.body.image1 ;
-    let  image2 = req.files.product_image2[0].filename || req.body.image2 ;
-    let  image3 = req.files.product_image3[0].filename || req.body.image3 ;
-    images = [ image1 , image2 , image3 ];
+    let  image1 = req.files.product_image1[0].path || req.body.image1 ;
+    let  image2 = req.files.product_image2[0].path || req.body.image2 ;
+    let  image3 = req.files.product_image3[0].path || req.body.image3 ;
+
+    let result1 = await cloudinary.uploader.upload(image1);
+    let result2 = await cloudinary.uploader.upload(image2);
+    let result3 = await cloudinary.uploader.upload(image3);
+
+    images = [result1.url , result2.url , result3.url ];
+
 
   }
 
@@ -937,17 +956,31 @@ router.get('/view-banners',(req,res) => {
   }).catch((err) => console.log(err));
 });
 
-router.post('/add-banner',upload_banner.single("offer_banner"),(req,res) => {
-  console.log(req.body);
-  console.log(req.file);
-  let image = req.file.filename;
-  let { expiry_date } = req.body; 
-  insertBanner(image,expiry_date).then((response) => {
-    console.log(response);
-    res.redirect('/admin/view-banners');
-  }).catch((err) => {
+router.post('/add-banner',upload_banner.single("offer_banner"),async (req,res) => {
+  
+  try{
+
+    console.log(req.body);
+    console.log(req.file);
+    let image = req.file.path;
+
+    let result = await cloudinary.uploader.upload(image);
+
+    let { expiry_date } = req.body; 
+    insertBanner(result.url,expiry_date).then((response) => {
+      console.log(response);
+      res.redirect('/admin/view-banners');
+    }).catch((err) => {
+      console.log(err);
+    })
+
+  }catch(err){
+
     console.log(err);
-  })
+
+  }
+
+  
 });
 
 router.post('/remove-banner',(req,res) => {

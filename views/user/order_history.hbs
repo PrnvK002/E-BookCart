@@ -66,14 +66,14 @@
                         {{#each orderData}}
                           <tr id="product-row-{{this.product_id._id}}">
                             {{!-- <td>
-                            <img src="/images/products/{{this.product_id.image.[0]}}" width="50" alt="" srcset="">
+                            <img src="{{this.product_id.image.[0]}}" width="50" alt="" srcset="">
                           </td> --}}
                             <td>{{this.ordered_date}}</td>
                             <td>{{this._id}}</td>
                             <td>
                               {{#each this.products}}
                                 <img
-                                  src="/images/products/{{this.product_id.image.[0]}}"
+                                  src="{{this.product_id.image.[0]}}"
                                   style="padding-bottom: 10px;"
                                   width="50"
                                   alt=""

@@ -30,8 +30,8 @@ const productsSchema = new Schema({
     
 // })
 
-// let date = new Date();
-// let now = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear() ; 
+let date = new Date();
+let now =  date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() ; 
 
 // console.log(now);
 
@@ -71,7 +71,7 @@ const orderSchema = mongoose.Schema({
         type : Boolean , 
         default : false
     },
-    ordered_date : { type: Date, default: new Date() },
+    ordered_date : { type: Date , default: now },
     delivery_date: { type : Date }
     
 });

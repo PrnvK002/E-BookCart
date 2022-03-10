@@ -25,7 +25,7 @@
                         alt=""
                         id="main_image"
                         class="j2store-product-main-image j2store-img-responsive"
-                        src="/images/products/{{product.image.[0]}}"
+                        src="{{product.image.[0]}}"
                         width="200"
                       />
                       {{!-- <img
@@ -52,7 +52,7 @@
                           onclick="viewMain('{{this}}')"
                           id="addimage-{{this}}"
                           class="j2store-item-additionalimage-preview j2store-img-responsive"
-                          src="/images/products/{{this}}"
+                          src="{{this}}"
                           alt="A Social History 4"
                           width="100"
                         />
@@ -372,6 +372,6 @@
 </div>
 <script>
   function viewMain(img){
-    document.getElementById('main_image').src = `/images/products/${img}`;
+    document.getElementById('main_image').src = `${img}`;
   }
 </script>

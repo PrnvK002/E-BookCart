@@ -2,22 +2,22 @@ const bcrypt = require('bcrypt');
 const Admin = require('../models/admin');
 
 
-// function insertAdmin(data){
-//     return new Promise(async (resolve,reject) => {
-//         data.password = await bcrypt.hash(data.password , 10);
-//         const admin = new Admin({ 
-//             email : data.email , 
-//             password : data.password
-//         });
-//         let status = await admin.save();
-//         if(status){
-//             resolve("---------------successfully inserted data-----------------");
-//         }
-//         else{
-//             reject("----------------An error occured while inserting-------------");
-//         }
-//     });
-// }
+function insertAdmin(data){
+    return new Promise(async (resolve,reject) => {
+        data.password = await bcrypt.hash(data.password , 10);
+        const admin = new Admin({ 
+            email : data.email , 
+            password : data.password
+        });
+        let status = await admin.save();
+        if(status){
+            resolve("---------------successfully inserted data-----------------");
+        }
+        else{
+            reject("----------------An error occured while inserting-------------");
+        }
+    });
+}
 
 // Login Check
 
@@ -51,12 +51,12 @@ function updatePassword(id,password){
         console.log("status of update");
         console.log(status);
         if(status){
-            resolve("------------password updated successfully----------")
+            resolve("------------password updated successfully----------");
         }
         else{
-            reject("--------------error occured while reseting the password----------")
+            reject("--------------error occured while reseting the password----------");
         }
-    })
+    });
 }
 
 // find admin
@@ -74,5 +74,5 @@ function findAdmin(email){
 }
 
 module.exports = {
-    loginCheck , updatePassword , findAdmin
+    loginCheck , updatePassword , findAdmin , insertAdmin
 }

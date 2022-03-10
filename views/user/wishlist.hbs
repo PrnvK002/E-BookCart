@@ -24,7 +24,7 @@
         {{#if data}}
         {{#each data.products}}
         <div class="card" id="{{this.product_id._id}}" style="width: 18rem;margin:1rem;padding:10px">
-          <img src="/images/products/{{this.product_id.image.[0]}}" class="card-img-top" alt="..." />
+          <img src="{{this.product_id.image.[0]}}" class="card-img-top" alt="..." />
           <div style="display: flex;justify-content:center;align-items:center">
           <div class="card-body" style="text-align: center;">
             <h5 class="card-title">{{this.product_id.productName}}</h5>

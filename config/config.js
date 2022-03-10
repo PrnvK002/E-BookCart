@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path : './config/config.env'});
 
 module.exports = {
+
     MONGO_URI : process.env.MONGO_URI,
     GOOGLE_CLIENT_SECRET : process.env.GOOGLE_CLIENT_SECRET,
     GOOGLE_CLIENT_ID : process.env.GOOGLE_CLIENT_ID,
@@ -15,5 +16,9 @@ module.exports = {
     PAYPAL_ID : process.env.PAYPAL_ID,
     PAYPAL_SECRET : process.env.PAYPAL_SECRET,
     STRIPE_PUBLISHABLE_KEY : process.env.STRIPE_PUBLISHABLE_KEY,
-    STRIPE_SECRET_KEY : process.env.STRIPE_SECRET_KEY
+    STRIPE_SECRET_KEY : process.env.STRIPE_SECRET_KEY,
+    CLOUDINARY_API_KEY : process.env.CLOUDINARY_API_KEY,
+    CLOUDINARY_API_SECRET : process.env.CLOUDINARY_API_SECRET,
+    CLOUDINARY_NAME : process.env.CLOUDINARY_NAME
+
 }

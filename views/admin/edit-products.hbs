@@ -48,7 +48,7 @@
 
 <div class="old" style="display: flex;justify-content: space-around;flex-wrap:wrap">
   {{#each product.image}}
-  <img src="/images/products/{{this}}" alt="" width="200">
+  <img src="{{this}}" alt="" width="200">
  {{/each}}
 
   <input type="text" name="image1" value="{{product.image.[0]}}" style="display: none;">
