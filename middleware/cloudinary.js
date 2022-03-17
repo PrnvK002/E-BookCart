@@ -1,7 +1,6 @@
 const cloudinary = require("cloudinary").v2;
 let { CLOUDINARY_API_KEY , CLOUDINARY_API_SECRET , CLOUDINARY_NAME } = require('../config/config');
 
-console.log( CLOUDINARY_API_KEY , CLOUDINARY_API_SECRET , CLOUDINARY_NAME );
 
 cloudinary.config({
   cloud_name: CLOUDINARY_NAME ,

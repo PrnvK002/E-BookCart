@@ -87,13 +87,13 @@
                               {{#if this.product_id.isOffer}}
                             <button onclick="deleteCartItem('{{this.product_id._id}}','{{this.product_id.offerPrice}}','{{this.product_id.productName}}')"
                               class="btn btn-small btn-danger btn-xs j2store-remove remove-icon">
-                              <i class="fa fa-trash-o"></i>
+                              <ion-icon name="trash-outline"></ion-icon>
                             </button>
                             {{else}}
                              <button onclick="deleteCartItem('{{this.product_id._id}}','{{this.product_id.price}}','{{this.product_id.productName}}')"
                               class="btn btn-small btn-danger btn-xs j2store-remove remove-icon">
-                              <i class="fa fa-trash-o"></i>
-                            </button>
+                                <ion-icon name="trash-outline"></ion-icon>
+                              </button>
                             {{/if}}
                           </td>
 

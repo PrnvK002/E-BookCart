@@ -32,7 +32,7 @@
                   <div class="j2store_cart_module_94">
                     <div class="j2store-minicart-button">
                       <span class="cart-item-info jb-cart-section">
-                        <a class="link" href="/cart">
+                        <a class="link" href="/cart" >
                           <span style="display: inline">Cart</span>
                           <i class="icon-line2-bag"></i>
                           <span class="cart-item-count" id="cart-total-count">{{total_count}}</span>
@@ -176,9 +176,9 @@ if(typeof(j2store.jQuery) == 'undefined') {
             <!-- HEAD SEARCH -->
             <div class="head-search" style="display: flex; align-items: center;" >
               {{!-- <form class="form-search" action="/userSearch" method="post"> --}}
-                <div class="search" style="display: flex;">
+                <div class="search" style="display: flex;position:relative">
                   <label for="mod-search-searchword">Search books</label>
-                  <i class="fa fa-search"></i>
+                  <ion-icon name="search-outline" style="color:white;position:absolute;top:40%;left:35%" ></ion-icon>
                   <input name="search" id="searchHead" maxlength="200" class="form-control" type="text" size="20" placeholder="search by product Name"/>
                   {{!-- <button type="submit" class="btn btn-success">Search</button> --}}
                   <div class="nav-child dropdown-menu mega-dropdown-menu" id="search_result" style="width : fit-content;height : fit-content;">

@@ -505,10 +505,13 @@ router.post("/edit-products",upload_product.fields([{name : 'product_image1'},{n
   let products = req.body;
     // let images = req.file.filename;
 
-  console.log(req.body);
-  console.log(req.files);
+  // console.log(req.body);
+  console.log(req);
   let images = [];
-  if(req.files.length > 0){
+
+  try{
+
+  if(req.files){
     
     let  image1 = req.files.product_image1[0].path || req.body.image1 ;
     let  image2 = req.files.product_image2[0].path || req.body.image2 ;
@@ -518,6 +521,7 @@ router.post("/edit-products",upload_product.fields([{name : 'product_image1'},{n
     let result2 = await cloudinary.uploader.upload(image2);
     let result3 = await cloudinary.uploader.upload(image3);
 
+    console.log(result1 ,result2 , result3 );
     images = [result1.url , result2.url , result3.url ];
 
 
@@ -539,6 +543,14 @@ router.post("/edit-products",upload_product.fields([{name : 'product_image1'},{n
 
       // throw error;
     });
+
+  }
+  catch(err){
+
+    console.log(err);
+
+  }
+
 });
 
 router.post("/products/delete_product/", (req, res) => {
