@@ -23,3 +23,4 @@ E Book cart is an E-commerce website for buying books.
 - Razorpay and stripe as payment gateways
 - Data table for generating pdf
 - Chart.js for generating graphs
+- Nodemailer for forgot password
